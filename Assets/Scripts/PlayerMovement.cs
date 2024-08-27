@@ -5,16 +5,21 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Variables relate player movement
+    // Move left or right
     private Rigidbody2D playerRb2D;
     private float playerSpeed = 5.0f;
 
-    // Variables relate user input
-    private float verticalInput, horizontalInput;
+    // User input
+    private float horizontalInput;
+
+    // Player jump
+    private float jumpPower = 5.0f;
+    private bool isRunning;
+
     // Start is called before the first frame update
     private void Start()
     {
-        playerRb2D = GetComponent<Rigidbody2D>();
+        playerRb2D = transform.parent.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -22,21 +27,26 @@ public class PlayerMovement : MonoBehaviour
         GetUserInput();
     }
 
-    private void FixedUpdate()
-    {
-        Move();
-
-    }
-
     private void GetUserInput()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
     }
 
-    private void Move()
+    private void FixedUpdate()
     {
-        Vector2 movement = new Vector2(horizontalInput, 0.0f).normalized * playerSpeed;
-        playerRb2D.velocity = movement;
+        if (horizontalInput != 0)
+            ChangeVelocity();
+
+        if (Input.GetButtonDown("Jump"))
+            Jump();
+    }
+    private void ChangeVelocity()
+    {
+        playerRb2D.velocity = new Vector2(horizontalInput * playerSpeed, playerRb2D.velocity.y);
+    }
+
+    private void Jump()
+    {
+        playerRb2D.velocity = new Vector2(playerRb2D.velocity.x, jumpPower);
     }
 }
