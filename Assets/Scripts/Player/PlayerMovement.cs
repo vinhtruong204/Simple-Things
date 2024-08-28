@@ -8,13 +8,14 @@ public class PlayerMovement : MonoBehaviour
     // Move left or right
     private Rigidbody2D playerRb2D;
     private float playerSpeed = 5.0f;
+    public bool IsRunning { get; private set; }
 
     // User input
     private float horizontalInput;
 
     // Player jump
     private float jumpPower = 5.0f;
-    private bool isRunning;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -29,19 +30,27 @@ public class PlayerMovement : MonoBehaviour
 
     private void GetUserInput()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
     }
 
     private void FixedUpdate()
     {
-        if (horizontalInput != 0)
-            ChangeVelocity();
+        ChangeVelocity();
 
         if (Input.GetButtonDown("Jump"))
             Jump();
     }
     private void ChangeVelocity()
     {
+        // If player not running
+        if (horizontalInput == 0.0f)
+        {
+            IsRunning = false;
+            playerRb2D.velocity = new Vector2(0.0f, playerRb2D.velocity.y); // Reset velocity
+            return;
+        }
+
+        IsRunning = true;
         playerRb2D.velocity = new Vector2(horizontalInput * playerSpeed, playerRb2D.velocity.y);
     }
 
