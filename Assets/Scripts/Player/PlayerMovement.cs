@@ -6,21 +6,21 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // Move left or right
-    private Rigidbody2D playerRb2D;
-    private float playerSpeed = 5.0f;
+    private readonly float playerSpeed = 5.0f;
+    public Rigidbody2D PlayerRb2D { get; private set; }
     public bool IsRunning { get; private set; }
 
     // User input
-    private float horizontalInput;
+    public float HorizontalInput { get; private set; }
 
     // Player jump
-    private float jumpPower = 5.0f;
+    private float jumpPower = 7.5f;
 
 
     // Start is called before the first frame update
     private void Start()
     {
-        playerRb2D = transform.parent.GetComponent<Rigidbody2D>();
+        PlayerRb2D = transform.parent.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void GetUserInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
+        HorizontalInput = Input.GetAxisRaw("Horizontal");
     }
 
     private void FixedUpdate()
@@ -39,23 +39,24 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
             Jump();
+
     }
     private void ChangeVelocity()
     {
         // If player not running
-        if (horizontalInput == 0.0f)
+        if (HorizontalInput == 0.0f)
         {
             IsRunning = false;
-            playerRb2D.velocity = new Vector2(0.0f, playerRb2D.velocity.y); // Reset velocity
+            PlayerRb2D.velocity = new Vector2(0.0f, PlayerRb2D.velocity.y); // Reset velocity
             return;
         }
 
         IsRunning = true;
-        playerRb2D.velocity = new Vector2(horizontalInput * playerSpeed, playerRb2D.velocity.y);
+        PlayerRb2D.velocity = new Vector2(HorizontalInput * playerSpeed, PlayerRb2D.velocity.y);
     }
 
     private void Jump()
     {
-        playerRb2D.velocity = new Vector2(playerRb2D.velocity.x, jumpPower);
+        PlayerRb2D.velocity = new Vector2(PlayerRb2D.velocity.x, jumpPower);
     }
 }
