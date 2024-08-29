@@ -11,11 +11,15 @@ public class PlayerAnimation : MonoBehaviour
     private PlayerMovement playerMovement;
     private Vector3 scale;
 
+    // Get rigidbody 2d
+    private Rigidbody2D playerRb2D;
+
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         playerMovement = PlayerController.Instance.PlayerMovement;
+        playerRb2D = GetComponentInParent<Rigidbody2D>();
         scale = new Vector3(1.5f, 1.5f, 0); // Default scale
     }
 
@@ -48,6 +52,8 @@ public class PlayerAnimation : MonoBehaviour
 
     private void SetAnimationType()
     {
-        animator.SetBool("IsRunning", playerMovement.IsRunning);
+        animator.SetBool("IsJumping", !playerMovement.IsGrounded);
+        animator.SetFloat("MoveX", Mathf.Abs(playerRb2D.velocity.x));
+        animator.SetFloat("MoveY", playerRb2D.velocity.y);
     }
 }
