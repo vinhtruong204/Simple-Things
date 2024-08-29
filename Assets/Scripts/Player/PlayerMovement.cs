@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     // Move left or right
     private readonly float playerSpeed = 5.0f;
     public Rigidbody2D PlayerRb2D { get; private set; }
-    public bool IsRunning { get; private set; }
 
     // User input
     public float HorizontalInput { get; private set; }
@@ -16,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     // Player jump
     private float jumpPower = 7.5f;
 
+    // Check collide with ground
+    public bool IsGrounded { get; private set; }
 
     // Start is called before the first frame update
     private void Start()
@@ -46,17 +47,21 @@ public class PlayerMovement : MonoBehaviour
         // If player not running
         if (HorizontalInput == 0.0f)
         {
-            IsRunning = false;
             PlayerRb2D.velocity = new Vector2(0.0f, PlayerRb2D.velocity.y); // Reset velocity
             return;
         }
 
-        IsRunning = true;
         PlayerRb2D.velocity = new Vector2(HorizontalInput * playerSpeed, PlayerRb2D.velocity.y);
     }
 
     private void Jump()
     {
+        IsGrounded = false;
         PlayerRb2D.velocity = new Vector2(PlayerRb2D.velocity.x, jumpPower);
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        IsGrounded = true;
     }
 }
