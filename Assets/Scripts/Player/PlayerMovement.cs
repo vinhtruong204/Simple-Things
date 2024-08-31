@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private const int MAXIMUM_NUMBER_JUMPS = 2;
     // Move left or right
     private readonly float playerSpeed = 5.0f;
     public Rigidbody2D PlayerRb2D { get; private set; }
@@ -13,7 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public float HorizontalInput { get; private set; }
 
     // Player jump
-    private float jumpPower = 7.5f;
+    private readonly float jumpPower = 8.0f;
+    private int jumpsLeft = MAXIMUM_NUMBER_JUMPS;
 
     // Check collide with ground
     public bool IsGrounded { get; private set; }
@@ -36,13 +38,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ChangeVelocity();
+        MoveHorizontal();
 
         if (Input.GetButtonDown("Jump"))
             Jump();
 
     }
-    private void ChangeVelocity()
+    private void MoveHorizontal()
     {
         // If player not running
         if (HorizontalInput == 0.0f)
@@ -56,12 +58,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        // If out of jumps
+        if (jumpsLeft <= 0)
+        {
+            return;
+        }
+
+        jumpsLeft--;
         IsGrounded = false;
         PlayerRb2D.velocity = new Vector2(PlayerRb2D.velocity.x, jumpPower);
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        // Set on ground to true
         IsGrounded = true;
+
+        // Reset remaining jumps
+        jumpsLeft = MAXIMUM_NUMBER_JUMPS;
+
     }
 }
