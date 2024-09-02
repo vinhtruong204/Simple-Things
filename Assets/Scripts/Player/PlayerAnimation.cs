@@ -20,7 +20,7 @@ public class PlayerAnimation : MonoBehaviour
         animator = GetComponent<Animator>();
         playerMovement = PlayerController.Instance.PlayerMovement;
         playerRb2D = GetComponentInParent<Rigidbody2D>();
-        scale = new Vector3(1.5f, 1.5f, 0); // Default scale
+        scale = transform.parent.localScale;
     }
 
     private void Update()
@@ -47,7 +47,7 @@ public class PlayerAnimation : MonoBehaviour
         }
 
         // Change parent scale 
-        transform.localScale = scale;
+        transform.parent.localScale = scale;
     }
 
     private void SetAnimationType()
