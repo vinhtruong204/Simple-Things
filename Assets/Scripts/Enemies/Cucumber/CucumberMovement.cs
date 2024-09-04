@@ -4,18 +4,22 @@ using System.Collections.Generic;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class CucumberMovement : MonoBehaviour
 {
-    private float enemySpeed = 5.0f;
+    private float enemySpeed = 1.5f;
     private Rigidbody2D enemyRb;
 
     // Prevent player change direction twice and get stuck in the wall
     private bool isChangingDirection = false;
 
+    // Animation
+    private CucumberAnimation CucumberAnimation;
+
     // Start is called before the first frame update
     private void Start()
     {
         enemyRb = GetComponentInParent<Rigidbody2D>();
+        CucumberAnimation = CucumberController.Instance.CucumberAnimation;
     }
 
     private bool IsFacingRight()
@@ -58,20 +62,8 @@ public class EnemyMovement : MonoBehaviour
         isChangingDirection = true;
 
 
-        // Flip enemy horizontal
-        Flip();
+        // Flip enemy's sprite horizontal
+        CucumberAnimation.Flip();
     }
 
-
-    private void Flip()
-    {
-        // Get parent game object scale
-        Vector3 scale = transform.parent.localScale;
-
-        // Flip horizontal
-        scale.x *= -1.0f;
-
-        // Set new parent game object scale
-        transform.parent.localScale = scale;
-    }
 }

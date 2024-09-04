@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
-    public static EnemyController Instance { get; private set; }
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
 
     }
