@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
         if (Instance != null)
         {
             Debug.LogWarning("Only one instance Player Controller is accepted!");
+            return;
         }
 
         Instance = this;
