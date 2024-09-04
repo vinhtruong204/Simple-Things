@@ -4,16 +4,13 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
+    // Enemy movement
+    protected float enemySpeed = 1.5f;
+    protected Rigidbody2D enemyRb;
 
-    // Start is called before the first frame update
-    private void Start()
-    {
+    // Enemy animation
+    protected Animator animator;
+    // Prevent player change direction twice and get stuck in the wall
+    protected bool isChangingDirection = false;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

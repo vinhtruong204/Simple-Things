@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CucumberAnimation : MonoBehaviour
+public class CucumberAnimation : CucumberController
 {
-    private Animator animator;
-    private CucumberMovement CucumberMovement;
-
     // Start is called before the first frame update
     private void Start()
     {
         animator = GetComponent<Animator>();
-        CucumberMovement = CucumberController.Instance.CucumberMovement;
+        cucumberMovement = transform.parent.GetComponentInChildren<CucumberMovement>();
     }
 
     public void Flip()
@@ -30,7 +27,6 @@ public class CucumberAnimation : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
             animator.SetBool("IsAttacking", true);
-
     }
 
     public void AttackFinished()
