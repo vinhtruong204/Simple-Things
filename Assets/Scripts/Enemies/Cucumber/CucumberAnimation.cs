@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class CucumberAnimation : CucumberController
 {
+    private bool isAttacking;
+    private BoxCollider2D enemyBox;
+    private BoxCollider2D playerBox;
     // Start is called before the first frame update
     private void Start()
     {
         animator = GetComponent<Animator>();
         cucumberMovement = transform.parent.GetComponentInChildren<CucumberMovement>();
+        enemyBox = transform.parent.GetComponent<BoxCollider2D>();
+        playerBox = GameObject.Find("Player").GetComponent<BoxCollider2D>();
+    }
+
+    private void Update()
+    {
+        animator.SetBool("IsAttacking", isAttacking);
     }
 
     public void Flip()
@@ -26,11 +36,18 @@ public class CucumberAnimation : CucumberController
     public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.name == "Player")
-            animator.SetBool("IsAttacking", true);
+            isAttacking = true;
+
     }
 
     public void AttackFinished()
     {
-        animator.SetBool("IsAttacking", false);
+
+        if (enemyBox.IsTouching(playerBox))
+        {
+            Debug.Log("send damage");
+        }
+
+        isAttacking = false;
     }
 }
