@@ -13,10 +13,16 @@ public class CucumberAnimation : CucumberController
         animator = GetComponent<Animator>();
         cucumberMovement = transform.parent.GetComponentInChildren<CucumberMovement>();
         enemyBox = transform.parent.GetComponent<BoxCollider2D>();
-        playerBox = GameObject.Find("Player").GetComponent<BoxCollider2D>();
+        // playerBox = GameObjectManager.Instance.Player.GetComponent<BoxCollider2D>();
+        playerBox = PlayerController.Instance.GetComponent<BoxCollider2D>();
     }
 
     private void Update()
+    {
+        UpdateCurrentState();
+    }
+
+    private void UpdateCurrentState()
     {
         animator.SetBool("IsAttacking", isAttacking);
     }
@@ -33,21 +39,20 @@ public class CucumberAnimation : CucumberController
         transform.parent.localScale = scale;
     }
 
-    public void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.name == "Player")
-            isAttacking = true;
-
-    }
-
     public void AttackFinished()
     {
-
+        // Send damage when finished attack animation
         if (enemyBox.IsTouching(playerBox))
         {
             Debug.Log("send damage");
         }
 
         isAttacking = false;
+    }
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.name == "Player")
+            isAttacking = true;
     }
 }
