@@ -44,7 +44,7 @@ public class CucumberAnimation : CucumberController
         // Send damage when finished attack animation
         if (enemyBox.IsTouching(playerBox))
         {
-            Debug.Log("send damage");
+            // Debug.Log("send damage");
         }
 
         isAttacking = false;
