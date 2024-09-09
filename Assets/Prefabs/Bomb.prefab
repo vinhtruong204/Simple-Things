@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7089546356506755545}
   - component: {fileID: 6913791980585644668}
   - component: {fileID: 1611975260426889006}
-  - component: {fileID: 4217493324413164907}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -51,7 +50,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 80f9aa5c2dab44c419d5364f8f652de8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -107,18 +106,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.85347754, y: 0.91574943}
   m_EdgeRadius: 0
---- !u!114 &4217493324413164907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2374293116523327726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4a6f313e41d14e47b806e88324192b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3860240548050639576
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +117,7 @@ GameObject:
   - component: {fileID: 8089009109389943947}
   - component: {fileID: 5837182810272550644}
   - component: {fileID: 2920131870382567313}
+  - component: {fileID: 8848742182964628251}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -225,3 +213,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8848742182964628251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3860240548050639576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a6f313e41d14e47b806e88324192b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
