@@ -7,12 +7,12 @@ public class ObjectPool : MonoBehaviour
 {
     public static ObjectPool Instance { get; private set; }
     private List<GameObject> pool;
-    [SerializeField] private GameObject bombPrefab;
-    private int initialCount = 5;
+    private GameObject bombPrefab;
+    private readonly int initialCount = 10;
 
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
@@ -24,12 +24,11 @@ public class ObjectPool : MonoBehaviour
     private void Start()
     {
         pool = new List<GameObject>();
-        // bombPrefab = Resources.Load<GameObject>("Assets/Prefabs/Bomb");
         bombPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Bomb.prefab");
 
         for (int i = 0; i < initialCount; i++)
         {
-            GameObject obj = Instantiate(bombPrefab, transform);
+            GameObject obj = Instantiate(bombPrefab);
             obj.SetActive(false);
             pool.Add(obj);
         }
@@ -48,7 +47,7 @@ public class ObjectPool : MonoBehaviour
         }
 
         // Create new game object and add to pool list
-        GameObject obj = Instantiate(bombPrefab, transform);
+        GameObject obj = Instantiate(bombPrefab);
         pool.Add(obj);
         return obj;
     }

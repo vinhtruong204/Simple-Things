@@ -5,17 +5,13 @@ using UnityEngine;
 
 public class BombAnimation : MonoBehaviour
 {
+    private readonly float explosionTime = 5.0f;
     private float time;
     private Animator animator;
     private void Start()
     {
         animator = GetComponent<Animator>();
     }
-    // private void OnEnable()
-    // {
-    //     time = 0.0f;
-    //     animator.SetBool("Finished", false);
-    // }
 
     // Update is called once per frame
     void Update()
@@ -24,14 +20,14 @@ public class BombAnimation : MonoBehaviour
 
         SetupAnimationtype();
 
-        if (time >= 5.0f)
+        if (time >= explosionTime)
             ResetTimer();
     }
 
     private void SetupAnimationtype()
     {
         animator.SetFloat("Time", time);
-        if (time >= 5.0f)
+        if (time >= explosionTime)
             animator.SetBool("Finished", true);
 
     }
@@ -49,6 +45,5 @@ public class BombAnimation : MonoBehaviour
     public void BooomFinished()
     {
         ObjectPool.Instance.Release(transform.parent.gameObject);
-        // transform.parent.gameObject.SetActive(false);
     }
 }
