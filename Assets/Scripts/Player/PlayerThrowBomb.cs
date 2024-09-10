@@ -15,9 +15,8 @@ public class PlayerThrowBomb : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-
-            GameObject bombPrefabs = ObjectPool.Instance.GetGameObject();
-            // bombPrefabs.transform.position = transform.parent.position + new Vector3(1.5f, 1.0f, 0);
+            // Throw a bomb from the bomb pool
+            BombPool.Instance.BombPooling.GetGameObject();
         }
     }
 }
