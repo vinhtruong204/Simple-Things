@@ -1,36 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
-public class ObjectPool : MonoBehaviour
+public class ObjectPooling
 {
-    public static ObjectPool Instance { get; private set; }
     private List<GameObject> pool;
-    private GameObject bombPrefab;
-    private readonly int initialCount = 10;
-
-    private void Awake()
+    private GameObject objectPrefab;
+    private Transform transformParent;
+    public ObjectPooling(GameObject objectPrefab, Transform transformParent, int initialCount)
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-    }
-
-    private void Start()
-    {
+        this.objectPrefab = objectPrefab;
+        this.transformParent = transformParent;
         pool = new List<GameObject>();
-        bombPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Bomb.prefab");
 
         for (int i = 0; i < initialCount; i++)
         {
-            GameObject obj = Instantiate(bombPrefab);
-            obj.SetActive(false);
-            pool.Add(obj);
+            GameObject newObject = Object.Instantiate(objectPrefab, transformParent);
+            newObject.SetActive(false);
+            pool.Add(newObject);
         }
     }
 
@@ -47,9 +34,9 @@ public class ObjectPool : MonoBehaviour
         }
 
         // Create new game object and add to pool list
-        GameObject obj = Instantiate(bombPrefab);
-        pool.Add(obj);
-        return obj;
+        GameObject newObject = Object.Instantiate(objectPrefab, transformParent);
+        pool.Add(newObject);
+        return newObject;
     }
 
     public void Release(GameObject obj)
@@ -61,7 +48,7 @@ public class ObjectPool : MonoBehaviour
     {
         foreach (GameObject obj in pool)
         {
-            Destroy(obj);
+            Object.Destroy(obj);
         }
         pool.Clear();
     }

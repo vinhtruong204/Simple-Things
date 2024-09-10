@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BombAnimation : MonoBehaviour
 {
-    private readonly float explosionTime = 5.0f;
+    private readonly float explosionTime = 3.0f;
     private float time;
     private Animator animator;
     private void Start()
@@ -44,6 +44,6 @@ public class BombAnimation : MonoBehaviour
 
     public void BooomFinished()
     {
-        ObjectPool.Instance.Release(transform.parent.gameObject);
+        BombPool.Instance.BombPooling.Release(transform.parent.gameObject);
     }
 }
