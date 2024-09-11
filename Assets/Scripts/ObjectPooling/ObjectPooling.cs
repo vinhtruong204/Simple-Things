@@ -28,7 +28,6 @@ public class ObjectPooling
         {
             if (!pool[i].activeInHierarchy)
             {
-                pool[i].SetActive(true);
                 return pool[i];
             }
         }

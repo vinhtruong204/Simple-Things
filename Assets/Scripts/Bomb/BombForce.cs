@@ -12,8 +12,8 @@ public class BombForce : MonoBehaviour
 
     private bool isPlayerFacingRight;
 
-    private Vector3 offsetRight = new(1.0f, 0.5f, 0.0f);
-    private Vector3 offsetLeft = new(-1.0f, 0.5f, 0.0f);
+    private Vector3 offsetRight = new(0.7f, 0.25f, 0.0f);
+    private Vector3 offsetLeft = new(-0.7f, 0.25f, 0.0f);
 
     private readonly float magnitudeForce = 5.0f;
 

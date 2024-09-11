@@ -44,6 +44,6 @@ public class BombAnimation : MonoBehaviour
 
     public void BooomFinished()
     {
-        BombPool.Instance.BombPooling.Release(transform.parent.gameObject);
+        BombSpawner.Instance.DeSpawnObject(transform.parent.gameObject);
     }
 }
