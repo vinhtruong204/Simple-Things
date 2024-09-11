@@ -16,12 +16,8 @@ public class GameObjectManager : MonoBehaviour
         }
 
         Instance = this;
-        //DontDestroyOnLoad(gameObject);
-    }
-
-    void Start()
-    {
         Player = GameObject.Find("Player");
+        //DontDestroyOnLoad(gameObject);
     }
 
 }

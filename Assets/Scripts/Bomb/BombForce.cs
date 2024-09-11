@@ -20,7 +20,7 @@ public class BombForce : MonoBehaviour
     private void Awake()
     {
         bombRb = GetComponentInParent<Rigidbody2D>();
-        player = GameObject.Find("Player");
+        player = GameObjectManager.Instance.Player;
     }
 
     private void OnEnable()

@@ -13,8 +13,7 @@ public class CucumberAnimation : CucumberController
         animator = GetComponent<Animator>();
         cucumberMovement = transform.parent.GetComponentInChildren<CucumberMovement>();
         enemyBox = transform.parent.GetComponent<BoxCollider2D>();
-        // playerBox = GameObjectManager.Instance.Player.GetComponent<BoxCollider2D>();
-        playerBox = PlayerController.Instance.GetComponent<BoxCollider2D>();
+        playerBox = GameObjectManager.Instance.Player.GetComponent<BoxCollider2D>();
     }
 
     private void Update()
