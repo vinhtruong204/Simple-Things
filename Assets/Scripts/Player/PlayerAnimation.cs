@@ -14,7 +14,6 @@ public class PlayerAnimation : MonoBehaviour
     // Get rigidbody 2d
     private Rigidbody2D playerRb2D;
 
-
     private void Start()
     {
         animator = GetComponent<Animator>();

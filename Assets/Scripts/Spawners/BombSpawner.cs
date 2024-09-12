@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombSpawner : MonoBehaviour, ISpawner
+public class BombSpawner : Spawner
 {
     public static BombSpawner Instance { get; private set; }
 
@@ -18,15 +18,15 @@ public class BombSpawner : MonoBehaviour, ISpawner
         DontDestroyOnLoad(transform.parent.gameObject);
     }
 
-    public void SpawnObject()
+    public override void SpawnObject()
     {
         // Call the bomb pool to spawn object
-        BombPool.Instance.BombPooling.GetGameObject().SetActive(true);
+        BombPool.Instance.GetGameObject().SetActive(true);
     }
 
-    public void DeSpawnObject(GameObject obj)
+    public override void DeSpawnObject(GameObject obj)
     {
-        BombPool.Instance.BombPooling.Release(obj);
+        BombPool.Instance.Release(obj);
     }
 }
 

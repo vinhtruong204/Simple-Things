@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPooling
+public abstract class ObjectPooling : MonoBehaviour
 {
-    private List<GameObject> pool;
-    private GameObject objectPrefab;
-    private Transform transformParent;
-    public ObjectPooling(GameObject objectPrefab, Transform transformParent, int initialCount)
+    protected List<GameObject> pool;
+    protected GameObject objectPrefab;
+    protected Transform transformParent;
+
+    protected void InitialPool(int initialCount)
     {
-        this.objectPrefab = objectPrefab;
-        this.transformParent = transformParent;
         pool = new List<GameObject>();
 
         for (int i = 0; i < initialCount; i++)
         {
-            GameObject newObject = Object.Instantiate(objectPrefab, transformParent);
+            GameObject newObject = Instantiate(objectPrefab, transformParent);
             newObject.SetActive(false);
             pool.Add(newObject);
         }
@@ -33,7 +32,7 @@ public class ObjectPooling
         }
 
         // Create new game object and add to pool list
-        GameObject newObject = Object.Instantiate(objectPrefab, transformParent);
+        GameObject newObject = Instantiate(objectPrefab, transformParent);
         pool.Add(newObject);
         return newObject;
     }
@@ -47,7 +46,7 @@ public class ObjectPooling
     {
         foreach (GameObject obj in pool)
         {
-            Object.Destroy(obj);
+            Destroy(obj);
         }
         pool.Clear();
     }
