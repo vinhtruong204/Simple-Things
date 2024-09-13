@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamgeSender : MonoBehaviour
+public abstract class DamgeSender : MonoBehaviour
 {
-    private readonly int amount = 1;
+    // Amount damge to send
+    protected int amount;
 
     public void SendDamge(Transform obj)
     {
