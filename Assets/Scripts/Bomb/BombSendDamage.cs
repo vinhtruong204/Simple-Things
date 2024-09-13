@@ -26,8 +26,9 @@ public class BombSendDamage : DamgeSender
         DisableCollider();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+
         if (bombAnimation.IsExploded)
         {
             circleCollider2D.enabled = true;
@@ -36,7 +37,8 @@ public class BombSendDamage : DamgeSender
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name);
+        // Debug.Log(other.gameObject.name);
+        SendDamge(other.transform);
     }
 
     public void DisableCollider()

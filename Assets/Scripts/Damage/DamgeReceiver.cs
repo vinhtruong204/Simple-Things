@@ -5,9 +5,9 @@ using UnityEngine;
 
 public abstract class DamgeReceiver : MonoBehaviour
 {
-    protected int currentHp;
-    protected int maxHp;
-    protected bool isDead;
+    [SerializeField] protected int currentHp;
+    [SerializeField] protected int maxHp;
+    [SerializeField] protected bool isDead;
 
     public void Add(int amount)
     {

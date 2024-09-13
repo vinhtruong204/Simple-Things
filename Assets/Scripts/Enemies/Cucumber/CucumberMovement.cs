@@ -9,14 +9,13 @@ public class CucumberMovement : CucumberController
     // Start is called before the first frame update
     private void Start()
     {
-
         enemyRb = GetComponentInParent<Rigidbody2D>();
         cucumberAnimation = transform.parent.GetComponentInChildren<CucumberAnimation>();
     }
 
     private bool IsFacingRight()
     {
-        return transform.parent.localScale.x > Mathf.Epsilon; // 0.0001f
+        return transform.parent.localScale.x > 0.0f;
     }
 
     // Update is called once per frame

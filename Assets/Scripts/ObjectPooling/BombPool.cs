@@ -23,7 +23,7 @@ public class BombPool : ObjectPooling
     {
         objectPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Bomb.prefab");
         transformParent = transform; // Set location to instantiate bomb object
-        base.InitialPool(10); // Start instantiate object with start size of pool is 10
+        InitialPool(10); // Start instantiate object with start size of pool is 10
     }
 
 }
