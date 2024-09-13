@@ -6,44 +6,49 @@ using UnityEngine;
 public class BombAnimation : MonoBehaviour
 {
     private readonly float explosionTime = 3.0f;
-    private float time;
+    private float timer;
     private Animator animator;
-    private void Start()
+    public bool IsExploded { get; private set; }
+
+    private void Awake()
     {
         animator = GetComponent<Animator>();
     }
 
+    private void OnEnable()
+    {
+        IsExploded = false; // Reset bool
+        timer = 0.0f; // Reset timer
+    }
+
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         UpdateTimer();
 
-        SetupAnimationtype();
-
-        if (time >= explosionTime)
-            ResetTimer();
-    }
-
-    private void SetupAnimationtype()
-    {
-        animator.SetFloat("Time", time);
-        if (time >= explosionTime)
-            animator.SetBool("Finished", true);
-
+        SetAnimationType();
     }
 
     private void UpdateTimer()
     {
-        time += Time.deltaTime;
+        timer += Time.deltaTime;
     }
 
-    private void ResetTimer()
+    private void SetAnimationType()
     {
-        time = 0.0f;
+        animator.SetFloat("Time", timer);
+
+        if (timer >= explosionTime)
+        {
+            IsExploded = true;
+            animator.SetBool("Finished", IsExploded); // Start run boom animation
+        }
     }
 
+    // Method add to unity event when last frame of animation boom finished
     public void BooomFinished()
     {
+        IsExploded = false;
         BombSpawner.Instance.DeSpawnObject(transform.parent.gameObject);
     }
 }
