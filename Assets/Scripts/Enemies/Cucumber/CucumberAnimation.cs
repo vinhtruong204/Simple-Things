@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,14 +6,21 @@ using UnityEngine;
 public class CucumberAnimation : CucumberController
 {
     private bool isAttacking;
-    private BoxCollider2D enemyBox;
+    private BoxCollider2D enemyAttackBox;
     private BoxCollider2D playerBox;
+    public bool AttackSucceed { get; private set; }
+    
     // Start is called before the first frame update
     private void Start()
     {
+        LoadAllComponents();
+    }
+
+    private void LoadAllComponents()
+    {
         animator = GetComponent<Animator>();
         cucumberMovement = transform.parent.GetComponentInChildren<CucumberMovement>();
-        enemyBox = transform.parent.GetComponent<BoxCollider2D>();
+        enemyAttackBox = transform.parent.GetChild(2).GetComponent<BoxCollider2D>();
         playerBox = GameObjectManager.Instance.Player.GetComponent<BoxCollider2D>();
     }
 
@@ -41,8 +49,9 @@ public class CucumberAnimation : CucumberController
     public void AttackFinished()
     {
         // Send damage when finished attack animation
-        if (enemyBox.IsTouching(playerBox))
+        if (enemyAttackBox.IsTouching(playerBox))
         {
+            AttackSucceed = true;
             // Debug.Log("send damage");
         }
 

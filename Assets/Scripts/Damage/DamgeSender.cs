@@ -13,10 +13,10 @@ public abstract class DamgeSender : MonoBehaviour
         DamgeReceiver damgeReceiver = obj.GetComponentInChildren<DamgeReceiver>();
         if (damgeReceiver == null) return;
 
-        this.SendDamge(damgeReceiver);
+        SendDamge(damgeReceiver);
     }
 
-    private void SendDamge(DamgeReceiver damgeReceiver)
+    public void SendDamge(DamgeReceiver damgeReceiver)
     {
         damgeReceiver.Deduct(amount);
     }
