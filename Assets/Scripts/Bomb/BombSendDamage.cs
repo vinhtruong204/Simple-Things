@@ -17,7 +17,7 @@ public class BombSendDamage : DamgeSender
 
     private void LoadAllComponents()
     {
-        bombAnimation = BombController.Instance.BombAnimation;
+        bombAnimation = transform.parent.GetComponentInChildren<BombAnimation>();
         circleCollider2D = GetComponent<CircleCollider2D>();
     }
 

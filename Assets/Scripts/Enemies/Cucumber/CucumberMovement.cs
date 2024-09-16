@@ -4,8 +4,16 @@ using System.Collections.Generic;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
-public class CucumberMovement : CucumberController
+public class CucumberMovement : MonoBehaviour
 {
+    private Rigidbody2D enemyRb;
+    private CucumberAnimation cucumberAnimation;
+
+    private float enemySpeed = 1.5f;
+
+    // Prevent player change direction twice and get stuck in the wall
+    protected bool isChangingDirection = false;
+
     // Start is called before the first frame update
     private void Start()
     {

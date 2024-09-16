@@ -5,19 +5,6 @@ using UnityEngine;
 
 public class BombPool : ObjectPooling
 {
-    public static BombPool Instance { get; private set; }
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-    }
-
     // Start is called before the first frame update
     private void Start()
     {

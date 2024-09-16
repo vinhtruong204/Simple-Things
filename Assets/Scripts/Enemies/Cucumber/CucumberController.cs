@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CucumberController : Enemy
+public class CucumberController : MonoBehaviour
 {
-    protected CucumberMovement cucumberMovement;
-    protected CucumberAnimation cucumberAnimation;
+    public CucumberMovement CucumberMovement { get; private set; }
+    public CucumberAnimation CucumberAnimation { get; private set; }
 
     private void Start()
     {
-        cucumberAnimation = GetComponentInChildren<CucumberAnimation>();
-        cucumberMovement = GetComponentInChildren<CucumberMovement>();
+        CucumberAnimation = GetComponentInChildren<CucumberAnimation>();
+        CucumberMovement = GetComponentInChildren<CucumberMovement>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        cucumberAnimation.OnCollisionEnter2D(other);
+        CucumberAnimation.OnCollisionEnter2D(other);
     }
 }

@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6caa57206a440646affb8f0abbf37fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombDamge: {fileID: 11400000, guid: 78da1c3b977610a45b98a98ecc78f13b, type: 2}
 --- !u!1 &3860240548050639576
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a6f313e41d14e47b806e88324192b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boomed: 0
 --- !u!1 &7140072314203037663
 GameObject:
   m_ObjectHideFlags: 0

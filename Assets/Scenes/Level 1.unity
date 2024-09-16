@@ -369,7 +369,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 852305152}
+  m_Father: {fileID: 1332794832}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &332424723
 MonoBehaviour:
@@ -684,7 +684,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24501498, y: -0.97914, z: -10}
+  m_LocalPosition: {x: 1.3747948, y: -0.98051, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -733,7 +733,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 547336123}
-  m_Layer: 8
+  - component: {fileID: 547336125}
+  - component: {fileID: 547336124}
+  m_Layer: 0
   m_Name: EnemyDamageSender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -755,6 +757,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 177342623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &547336124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547336122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee28a6d918085041835d50f01e143cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &547336125
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547336122}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 247
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.076402515, y: -0.031679153}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.1034483, y: 1.1724138}
+    newSize: {x: 0.64, y: 0.68}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6524855, y: 1.1090555}
+  m_EdgeRadius: 0
 --- !u!1 &596828631
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,6 +938,7 @@ GameObject:
   m_Component:
   - component: {fileID: 726907647}
   - component: {fileID: 726907648}
+  - component: {fileID: 726907649}
   m_Layer: 8
   m_Name: PlayerDamgeReceiver
   m_TagString: Untagged
@@ -946,6 +1006,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.803352, y: 1.2895097}
   m_EdgeRadius: 0
+--- !u!114 &726907649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726907646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38ad072358f681d46b2d8e8ce7ac369a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHp: 5
+  maxHp: 5
+  isDead: 0
 --- !u!1 &782407224
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,38 +1065,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15ef84362b7afb48b70a0d76b7ba681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &852305150
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 852305152}
-  m_Layer: 0
-  m_Name: ObjectPooling
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &852305152
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852305150}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 332424722}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1074209186
 GameObject:
   m_ObjectHideFlags: 0
@@ -5483,7 +5526,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 332424722}
   m_Father: {fileID: 596828632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1332794833
@@ -5508,6 +5552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1380880630}
   - component: {fileID: 1380880631}
+  - component: {fileID: 1380880632}
   m_Layer: 8
   m_Name: EnemyDamageReceiver
   m_TagString: Untagged
@@ -5562,7 +5607,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000017881393, y: -0.060086995}
+  m_Offset: {x: -0.005241476, y: -0.060086966}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5573,8 +5618,23 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.45375502, y: 1.0619078}
+  m_Size: {x: 0.42230588, y: 1.0619078}
   m_EdgeRadius: 0
+--- !u!114 &1380880632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380880629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 993931832cd1b084fb7c9936f512ea4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHp: 3
+  maxHp: 3
+  isDead: 0
 --- !u!1 &1422852065
 GameObject:
   m_ObjectHideFlags: 0
@@ -7968,5 +8028,4 @@ SceneRoots:
   - {fileID: 1701811216}
   - {fileID: 1128905618}
   - {fileID: 1422852066}
-  - {fileID: 852305152}
   - {fileID: 596828632}
