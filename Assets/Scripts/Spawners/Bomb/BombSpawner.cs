@@ -6,6 +6,8 @@ public class BombSpawner : Spawner
 {
     public static BombSpawner Instance { get; private set; }
 
+    private BombPool bombPool;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -18,15 +20,20 @@ public class BombSpawner : Spawner
         DontDestroyOnLoad(transform.parent.gameObject);
     }
 
+    private void Start()
+    {
+        bombPool = GetComponentInChildren<BombPool>();
+    }
+
     public override void SpawnObject()
     {
         // Call the bomb pool to spawn object
-        BombPool.Instance.GetGameObject().SetActive(true);
+        bombPool.GetGameObject().SetActive(true);
     }
 
     public override void DeSpawnObject(GameObject obj)
     {
-        BombPool.Instance.Release(obj);
+        bombPool.Release(obj);
     }
 }
 

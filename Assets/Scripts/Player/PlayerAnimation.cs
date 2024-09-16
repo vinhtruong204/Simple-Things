@@ -17,7 +17,7 @@ public class PlayerAnimation : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        playerMovement = PlayerController.Instance.PlayerMovement;
+        playerMovement = transform.parent.GetComponentInChildren<PlayerMovement>();
         playerRb2D = GetComponentInParent<Rigidbody2D>();
         scale = transform.parent.localScale;
     }

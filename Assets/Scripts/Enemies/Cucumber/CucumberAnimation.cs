@@ -9,7 +9,10 @@ public class CucumberAnimation : CucumberController
     private BoxCollider2D enemyAttackBox;
     private BoxCollider2D playerBox;
     public bool AttackSucceed { get; private set; }
-    
+
+
+    private Animator animator;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -19,7 +22,6 @@ public class CucumberAnimation : CucumberController
     private void LoadAllComponents()
     {
         animator = GetComponent<Animator>();
-        cucumberMovement = transform.parent.GetComponentInChildren<CucumberMovement>();
         enemyAttackBox = transform.parent.GetChild(2).GetComponent<BoxCollider2D>();
         playerBox = GameObjectManager.Instance.Player.GetComponent<BoxCollider2D>();
     }
