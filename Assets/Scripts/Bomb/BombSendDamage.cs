@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombSendDamage : DamgeSender
+public class BombSendDamage : DamageSender
 {
     private BombAnimation bombAnimation;
     private CircleCollider2D circleCollider2D;
@@ -38,10 +38,10 @@ public class BombSendDamage : DamgeSender
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Debug.Log(other.gameObject.name);
-        SendDamge(other.transform);
+        SendDamage(other.transform);
     }
 
-    public void DisableCollider()
+    private void DisableCollider()
     {
         // Prevent null reference exception when instantiate
         if (circleCollider2D == null) return;

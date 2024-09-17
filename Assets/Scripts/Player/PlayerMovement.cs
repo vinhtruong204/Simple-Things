@@ -42,8 +42,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
             Jump();
-
     }
+
     private void MoveHorizontal()
     {
         // If player not running
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         PlayerRb2D.velocity = new Vector2(PlayerRb2D.velocity.x, jumpPower);
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         // Set on ground to true
         IsGrounded = true;

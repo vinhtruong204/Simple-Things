@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b126d1a6135464799c2124f18038a2, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
+  characterName: Bomb Guy
   maxHP: 5
