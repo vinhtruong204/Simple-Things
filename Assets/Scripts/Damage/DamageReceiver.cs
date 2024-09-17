@@ -3,31 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class DamgeReceiver : MonoBehaviour
+public abstract class DamageReceiver : MonoBehaviour
 {
-    [SerializeField] protected int currentHp;
-    [SerializeField] protected int maxHp;
+    [SerializeField] protected int currentHP;
+    [SerializeField] protected int maxHP;
     [SerializeField] protected bool isDead;
 
     public void Add(int amount)
     {
         if (isDead) return;
 
-        currentHp += amount;
+        currentHP += amount;
 
-        if (currentHp >= maxHp)
-            currentHp = maxHp;
+        if (currentHP >= maxHP)
+            currentHP = maxHP;
     }
 
     public void Deduct(int amount)
     {
         if (isDead) return;
 
-        currentHp -= amount;
+        currentHP -= amount;
 
-        if (currentHp <= 0)
+        if (currentHP <= 0)
         {
-            currentHp = 0;
+            currentHP = 0;
             isDead = true;
         }
     }

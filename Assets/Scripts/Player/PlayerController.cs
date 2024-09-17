@@ -12,9 +12,4 @@ public class PlayerController : MonoBehaviour
         PlayerMovement = GetComponentInChildren<PlayerMovement>();
         PlayerAnimation = GetComponentInChildren<PlayerAnimation>();
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        PlayerMovement.OnTriggerEnter2D(other);
-    }
 }

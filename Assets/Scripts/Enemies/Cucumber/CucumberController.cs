@@ -6,15 +6,17 @@ public class CucumberController : MonoBehaviour
 {
     public CucumberMovement CucumberMovement { get; private set; }
     public CucumberAnimation CucumberAnimation { get; private set; }
+    public CucumberDamageSender CucumberDamageSender { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         CucumberAnimation = GetComponentInChildren<CucumberAnimation>();
         CucumberMovement = GetComponentInChildren<CucumberMovement>();
+        CucumberDamageSender = GetComponentInChildren<CucumberDamageSender>();
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
-        CucumberAnimation.OnCollisionEnter2D(other);
+        CucumberAnimation.OnCollisionStay2D(other);
     }
 }
