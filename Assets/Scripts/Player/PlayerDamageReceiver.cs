@@ -23,11 +23,6 @@ public class PlayerDamageReceiver : DamageReceiver
 
     protected override void DeadHandle()
     {
-        playerAnimation.PlayDeadAnimations();
-    }
-
-    public void ResetIsBeingHit()
-    {
-        IsBeingHit = false;
+        playerAnimation.PlayDeadHitAnimation();
     }
 }

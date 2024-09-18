@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CucumberAnimation : CucumberController
+public class CucumberAnimation : CucumberController, IDamageAnimation
 {
     private bool isAttacking;
     private BoxCollider2D enemyAttackBox;
@@ -14,28 +14,41 @@ public class CucumberAnimation : CucumberController
 
     private Animator animator;
 
+    // Handle hit and dead hit animation
+    private CucumberDamageReceiver cucumberDamageReceiver;
+
     // Start is called before the first frame update
     private void Start()
     {
+        LoadPlayerComponents();
+
         LoadAllComponents();
+    }
+
+    private void LoadPlayerComponents()
+    {
+        player = GameObjectManager.Instance.Player;
+        playerBox = player.GetComponent<BoxCollider2D>();
     }
 
     private void LoadAllComponents()
     {
         animator = GetComponent<Animator>();
         enemyAttackBox = transform.parent.GetComponent<BoxCollider2D>();
-        player = GameObjectManager.Instance.Player;
-        playerBox = player.GetComponent<BoxCollider2D>();
         cucumberDamageSender = transform.parent.GetComponentInChildren<CucumberDamageSender>();
+        cucumberDamageReceiver = transform.parent.GetComponentInChildren<CucumberDamageReceiver>();
     }
 
     private void Update()
     {
-        UpdateCurrentState();
+        UpdateCurrentAttackState();
     }
 
-    private void UpdateCurrentState()
+    private void UpdateCurrentAttackState()
     {
+        // if enemy is being hit => can't attack
+        if (cucumberDamageReceiver.IsBeingHit || cucumberDamageReceiver.IsDead) return;
+
         animator.SetBool("IsAttacking", isAttacking);
     }
 
@@ -70,5 +83,25 @@ public class CucumberAnimation : CucumberController
         {
             isAttacking = true;
         }
+    }
+
+    public void PlayHitAnimation()
+    {
+        animator.SetTrigger("IsBeingHit");
+    }
+
+    public void HitFinished()
+    {
+        cucumberDamageReceiver.ResetIsBeingHit();
+    }
+
+    public void PlayDeadHitAnimation()
+    {
+        animator.SetTrigger("DeadHit");
+    }
+
+    public void DeadGroundFinished()
+    {
+        Debug.Log("Enemy deaded");
     }
 }

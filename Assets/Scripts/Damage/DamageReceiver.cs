@@ -27,7 +27,7 @@ public abstract class DamageReceiver : MonoBehaviour
         if (IsDead || IsBeingHit) return;
 
         currentHP -= amount;
-        IsBeingHit = true;
+
 
         if (currentHP <= 0)
         {
@@ -37,7 +37,13 @@ public abstract class DamageReceiver : MonoBehaviour
             return;
         }
 
+        IsBeingHit = true;
         HitHandle();
+    }
+
+    public void ResetIsBeingHit()
+    {
+        IsBeingHit = false;
     }
 
     protected abstract void HitHandle();

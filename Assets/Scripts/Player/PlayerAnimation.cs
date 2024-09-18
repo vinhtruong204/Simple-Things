@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour
+public class PlayerAnimation : MonoBehaviour, IDamageAnimation
 {
     // Animation control
     private Animator animator;
@@ -17,6 +17,7 @@ public class PlayerAnimation : MonoBehaviour
 
     // Hit handle
     private PlayerDamageReceiver playerDamageReceiver;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -32,7 +33,6 @@ public class PlayerAnimation : MonoBehaviour
 
         SetAnimationType();
 
-        // animator.SetBool("IsBeingHit", playerDamageReceiver.IsBeingHit);
     }
 
     private void ChangeDirection()
@@ -57,7 +57,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void SetAnimationType()
     {
-        // If player is being hit
+        // If player is being hit or deaded
         if (playerDamageReceiver.IsBeingHit || playerDamageReceiver.IsDead) return;
 
         // Set animation animation style depend on current character statesF
@@ -76,8 +76,14 @@ public class PlayerAnimation : MonoBehaviour
         playerDamageReceiver.ResetIsBeingHit();
     }
 
-    public void PlayDeadAnimations()
+    public void PlayDeadHitAnimation()
     {
-        animator.SetTrigger("Deaded");
+        animator.SetTrigger("DeadHit");
     }
+
+    public void DeadGroundFinished()
+    {
+        Debug.Log("player deaded");
+    }
+
 }
