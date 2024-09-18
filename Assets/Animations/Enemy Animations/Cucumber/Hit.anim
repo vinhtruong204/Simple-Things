@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dead Ground
+  m_Name: Hit
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,21 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 9816ec465e9b80944b0bcc2ea76f750e, type: 3}
+      value: {fileID: 21300000, guid: 7534cdb436adeb54fb75441f7c599260, type: 3}
     - time: 0.05
-      value: {fileID: 21300000, guid: 3e59cf1c9be8ee149940ff0745e13345, type: 3}
+      value: {fileID: 21300000, guid: da899009ebb747249908dbf4ee0c7077, type: 3}
     - time: 0.1
-      value: {fileID: 21300000, guid: 73ae154fc90d03e4a82d3b3e296e6e72, type: 3}
+      value: {fileID: 21300000, guid: acef09f23175a634aa29e0c41c55ec43, type: 3}
     - time: 0.15
-      value: {fileID: 21300000, guid: dc2be72a671b1c348837e69a43e764e2, type: 3}
+      value: {fileID: 21300000, guid: 6a7f720f847d25642a0b905455288ee5, type: 3}
+    - time: 0.2
+      value: {fileID: 21300000, guid: 4c2d0bafec9a64348a7c554cae242a40, type: 3}
+    - time: 0.25
+      value: {fileID: 21300000, guid: 5e139a3f710198148bc79eff86253c6a, type: 3}
+    - time: 0.3
+      value: {fileID: 21300000, guid: 34ab2241dcd69d84ba43b99d5d1867ea, type: 3}
+    - time: 0.35
+      value: {fileID: 21300000, guid: f25e986c2837b4e44ae212c141a34d8d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,16 +58,20 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 9816ec465e9b80944b0bcc2ea76f750e, type: 3}
-    - {fileID: 21300000, guid: 3e59cf1c9be8ee149940ff0745e13345, type: 3}
-    - {fileID: 21300000, guid: 73ae154fc90d03e4a82d3b3e296e6e72, type: 3}
-    - {fileID: 21300000, guid: dc2be72a671b1c348837e69a43e764e2, type: 3}
+    - {fileID: 21300000, guid: 7534cdb436adeb54fb75441f7c599260, type: 3}
+    - {fileID: 21300000, guid: da899009ebb747249908dbf4ee0c7077, type: 3}
+    - {fileID: 21300000, guid: acef09f23175a634aa29e0c41c55ec43, type: 3}
+    - {fileID: 21300000, guid: 6a7f720f847d25642a0b905455288ee5, type: 3}
+    - {fileID: 21300000, guid: 4c2d0bafec9a64348a7c554cae242a40, type: 3}
+    - {fileID: 21300000, guid: 5e139a3f710198148bc79eff86253c6a, type: 3}
+    - {fileID: 21300000, guid: 34ab2241dcd69d84ba43b99d5d1867ea, type: 3}
+    - {fileID: 21300000, guid: f25e986c2837b4e44ae212c141a34d8d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.2
+    m_StopTime: 0.4
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -79,8 +91,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.15
-    functionName: DeadGroundFinished
+  - time: 0.35
+    functionName: HitFinished
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

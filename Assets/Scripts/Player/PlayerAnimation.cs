@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour
+public class PlayerAnimation : MonoBehaviour, IDamageAnimation
 {
     // Animation control
     private Animator animator;
@@ -14,10 +15,14 @@ public class PlayerAnimation : MonoBehaviour
     // Get rigidbody 2d
     private Rigidbody2D playerRb2D;
 
+    // Hit handle
+    private PlayerDamageReceiver playerDamageReceiver;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         playerMovement = transform.parent.GetComponentInChildren<PlayerMovement>();
+        playerDamageReceiver = transform.parent.GetComponentInChildren<PlayerDamageReceiver>();
         playerRb2D = GetComponentInParent<Rigidbody2D>();
         scale = transform.parent.localScale;
     }
@@ -27,6 +32,7 @@ public class PlayerAnimation : MonoBehaviour
         ChangeDirection();
 
         SetAnimationType();
+
     }
 
     private void ChangeDirection()
@@ -51,8 +57,33 @@ public class PlayerAnimation : MonoBehaviour
 
     private void SetAnimationType()
     {
+        // If player is being hit or deaded
+        if (playerDamageReceiver.IsBeingHit || playerDamageReceiver.IsDead) return;
+
+        // Set animation animation style depend on current character statesF
         animator.SetBool("IsJumping", !playerMovement.IsGrounded);
         animator.SetFloat("MoveX", Mathf.Abs(playerRb2D.velocity.x));
         animator.SetFloat("MoveY", playerRb2D.velocity.y);
     }
+
+    public void PlayHitAnimation()
+    {
+        animator.SetTrigger("IsBeingHit");
+    }
+
+    public void HitFinished()
+    {
+        playerDamageReceiver.ResetIsBeingHit();
+    }
+
+    public void PlayDeadHitAnimation()
+    {
+        animator.SetTrigger("DeadHit");
+    }
+
+    public void DeadGroundFinished()
+    {
+        Debug.Log("player deaded");
+    }
+
 }
