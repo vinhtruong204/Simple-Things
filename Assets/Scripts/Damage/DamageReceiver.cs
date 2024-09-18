@@ -7,11 +7,14 @@ public abstract class DamageReceiver : MonoBehaviour
 {
     [SerializeField] protected int currentHP;
     [SerializeField] protected int maxHP;
-    [SerializeField] protected bool isDead;
+    public bool IsDead { get; protected set; }
+
+    // Player is being hit
+    public bool IsBeingHit { get; protected set; }
 
     public void Add(int amount)
     {
-        if (isDead) return;
+        if (IsDead) return;
 
         currentHP += amount;
 
@@ -21,16 +24,23 @@ public abstract class DamageReceiver : MonoBehaviour
 
     public void Deduct(int amount)
     {
-        if (isDead) return;
+        if (IsDead || IsBeingHit) return;
 
         currentHP -= amount;
+        IsBeingHit = true;
 
         if (currentHP <= 0)
         {
             currentHP = 0;
-            isDead = true;
+            IsDead = true;
+            DeadHandle();
+            return;
         }
+
+        HitHandle();
     }
+
+    protected abstract void HitHandle();
 
     protected abstract void DeadHandle();
 }

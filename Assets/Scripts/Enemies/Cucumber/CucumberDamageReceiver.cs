@@ -16,4 +16,9 @@ public class CucumberDamageReceiver : DamageReceiver
     {
         throw new System.NotImplementedException();
     }
+
+    protected override void HitHandle()
+    {
+        throw new System.NotImplementedException();
+    }
 }
