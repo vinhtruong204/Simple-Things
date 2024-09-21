@@ -5,4 +5,5 @@ public class CharacterSO : ScriptableObject
 {
     public string characterName;
     public int maxHP;
+    public int amountDamage;
 }

@@ -17,6 +17,9 @@ public class CucumberAnimation : CucumberController, IDamageAnimation
     // Handle hit and dead hit animation
     private CucumberDamageReceiver cucumberDamageReceiver;
 
+    // Reference movement
+    private CucumberMovement cucumberMovement;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -37,6 +40,7 @@ public class CucumberAnimation : CucumberController, IDamageAnimation
         enemyAttackBox = transform.parent.GetComponent<BoxCollider2D>();
         cucumberDamageSender = transform.parent.GetComponentInChildren<CucumberDamageSender>();
         cucumberDamageReceiver = transform.parent.GetComponentInChildren<CucumberDamageReceiver>();
+        cucumberMovement = transform.parent.GetComponentInChildren<CucumberMovement>();
     }
 
     private void Update()
@@ -82,6 +86,12 @@ public class CucumberAnimation : CucumberController, IDamageAnimation
         if (other.gameObject.name == "Player")
         {
             isAttacking = true;
+
+            // Player direction oposite with enemy
+            if (other.gameObject.transform.localScale.x * transform.parent.localScale.x > 0.0f)
+            {
+                Flip();
+            }
         }
     }
 
@@ -103,5 +113,6 @@ public class CucumberAnimation : CucumberController, IDamageAnimation
     public void DeadGroundFinished()
     {
         Debug.Log("Enemy deaded");
+        Destroy(transform.parent.gameObject);
     }
 }

@@ -6,7 +6,9 @@ using UnityEngine;
 public abstract class DamageSender : MonoBehaviour
 {
     // Amount damge to send
-    protected int amount = 1;
+    protected int amount;
+
+    protected abstract void InitialAmountDamage(); // Initial amount damage to send
 
     public void SendDamage(Transform obj)
     {

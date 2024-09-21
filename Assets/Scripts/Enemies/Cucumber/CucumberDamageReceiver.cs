@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CucumberDamageReceiver : DamageReceiver
 {
-    [SerializeField] private CharacterSO cucumberSO;
+    private CucumberController cucumberController;
 
     private CucumberAnimation cucumberAnimation;
+
     private void Start()
     {
-        cucumberSO = Resources.Load<CharacterSO>("Enemy/Cucumber");
-        cucumberAnimation = transform.parent.GetComponentInChildren<CucumberAnimation>();
-        maxHP = cucumberSO.maxHP;
+        cucumberController = transform.parent.GetComponent<CucumberController>();
+        cucumberAnimation = cucumberController.CucumberAnimation;
+        maxHP = cucumberController.CucumberSO.maxHP;
         currentHP = maxHP;
-
     }
 
     protected override void HitHandle()

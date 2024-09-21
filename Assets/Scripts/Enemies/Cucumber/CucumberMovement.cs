@@ -21,11 +21,6 @@ public class CucumberMovement : MonoBehaviour
         cucumberAnimation = transform.parent.GetComponentInChildren<CucumberAnimation>();
     }
 
-    private bool IsFacingRight()
-    {
-        return transform.parent.localScale.x > 0.0f;
-    }
-
     // Update is called once per frame
     private void FixedUpdate()
     {
@@ -40,7 +35,7 @@ public class CucumberMovement : MonoBehaviour
         isChangingDirection = false;
     }
 
-    private void ChangeMoveDirection()
+    public void ChangeMoveDirection()
     {
         // Get current rigidbody2d velocity
         Vector2 velocity = enemyRb.velocity;
@@ -52,6 +47,11 @@ public class CucumberMovement : MonoBehaviour
         enemyRb.velocity = velocity;
     }
 
+    private bool IsFacingRight()
+    {
+        return transform.parent.localScale.x > 0.0f;
+    }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         // If enemy is changing direction 
@@ -60,9 +60,10 @@ public class CucumberMovement : MonoBehaviour
         // Prevent this method from being called and change direction on the next call
         isChangingDirection = true;
 
-
         // Flip enemy's sprite horizontal
         cucumberAnimation.Flip();
+
+        ChangeMoveDirection();
     }
 
 }

@@ -11,8 +11,7 @@ public class BombSendDamage : DamageSender
     private void Awake()
     {
         LoadAllComponents();
-
-        amount = 1; // Initial amount damage
+        InitialAmountDamage();
     }
 
     private void LoadAllComponents()
@@ -47,5 +46,10 @@ public class BombSendDamage : DamageSender
         if (circleCollider2D == null) return;
 
         circleCollider2D.enabled = false;
+    }
+
+    protected override void InitialAmountDamage()
+    {
+        amount = 1; // Initial amount damage
     }
 }

@@ -8,11 +8,14 @@ public class CucumberController : MonoBehaviour
     public CucumberAnimation CucumberAnimation { get; private set; }
     public CucumberDamageSender CucumberDamageSender { get; private set; }
 
+    public CharacterSO CucumberSO { get; private set; }
+
     private void Awake()
     {
         CucumberAnimation = GetComponentInChildren<CucumberAnimation>();
         CucumberMovement = GetComponentInChildren<CucumberMovement>();
         CucumberDamageSender = GetComponentInChildren<CucumberDamageSender>();
+        CucumberSO = Resources.Load<CharacterSO>("Enemy/Cucumber");
     }
 
     private void OnCollisionStay2D(Collision2D other)
