@@ -38,6 +38,9 @@ public class BombSendDamage : DamageSender
     {
         // Debug.Log(other.gameObject.name);
         SendDamage(other.transform);
+
+        // Add force
+        other.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(5.0f, 5.0f), ForceMode2D.Impulse);
     }
 
     private void DisableCollider()

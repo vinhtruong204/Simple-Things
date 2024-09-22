@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CucumberAnimation : CucumberController, IDamageAnimation
+public class CucumberAnimation : MonoBehaviour, IDamageAnimation
 {
     private bool isAttacking;
     private BoxCollider2D enemyAttackBox;
@@ -83,16 +83,16 @@ public class CucumberAnimation : CucumberController, IDamageAnimation
 
     public void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.name == "Player")
-        {
-            isAttacking = true;
+        if (other.gameObject.name != "Player") return;
 
-            // Player direction oposite with enemy
-            if (other.gameObject.transform.localScale.x * transform.parent.localScale.x > 0.0f)
-            {
-                Flip();
-            }
+        isAttacking = true;
+
+        // Player direction oposite with enemy
+        if (other.gameObject.transform.localScale.x * transform.parent.localScale.x > 0.0f)
+        {
+            Flip();
         }
+
     }
 
     public void PlayHitAnimation()

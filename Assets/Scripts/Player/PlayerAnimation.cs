@@ -57,8 +57,8 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation
 
     private void SetAnimationType()
     {
-        // If player is being hit or deaded
-        if (playerDamageReceiver.IsBeingHit || playerDamageReceiver.IsDead) return;
+        // If player is deaded
+        if (playerDamageReceiver.IsDead) return;
 
         // Set animation animation style depend on current character statesF
         animator.SetBool("IsJumping", !playerMovement.IsGrounded);

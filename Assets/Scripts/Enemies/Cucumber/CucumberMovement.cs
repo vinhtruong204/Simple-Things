@@ -27,7 +27,7 @@ public class CucumberMovement : MonoBehaviour
         ResetBoolChangingDirection();
 
         // Move enemy horizontal
-        ChangeMoveDirection();
+        UpdateVelocity();
     }
 
     private void ResetBoolChangingDirection()
@@ -35,9 +35,8 @@ public class CucumberMovement : MonoBehaviour
         isChangingDirection = false;
     }
 
-    public void ChangeMoveDirection()
+    private void UpdateVelocity()
     {
-        // Get current rigidbody2d velocity
         Vector2 velocity = enemyRb.velocity;
 
         // Change move direction depend on enemy's direction
@@ -52,6 +51,7 @@ public class CucumberMovement : MonoBehaviour
         return transform.parent.localScale.x > 0.0f;
     }
 
+
     private void OnTriggerExit2D(Collider2D other)
     {
         // If enemy is changing direction 
@@ -62,8 +62,6 @@ public class CucumberMovement : MonoBehaviour
 
         // Flip enemy's sprite horizontal
         cucumberAnimation.Flip();
-
-        ChangeMoveDirection();
     }
 
 }
