@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 128140498}
   m_Layer: 5
   m_Name: HeartImage (3)
-  m_TagString: Untagged
+  m_TagString: HeartHealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -354,7 +354,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 25, y: 23}
+  m_SizeDelta: {x: 25, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &128140498
 MonoBehaviour:
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 152580097}
   m_Layer: 5
   m_Name: HeartImage (2)
-  m_TagString: Untagged
+  m_TagString: HeartHealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -429,7 +429,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 25, y: 23}
+  m_SizeDelta: {x: 25, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &152580097
 MonoBehaviour:
@@ -1390,7 +1390,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24515064, y: -0.97914, z: -10}
+  m_LocalPosition: {x: -0.24487253, y: -0.97914, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1700,8 +1700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ad072358f681d46b2d8e8ce7ac369a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 0
-  maxHP: 0
   playerSO: {fileID: 0}
 --- !u!1 &777222843
 GameObject:
@@ -1979,8 +1977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993931832cd1b084fb7c9936f512ea4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 0
-  maxHP: 0
 --- !u!1 &1074209186
 GameObject:
   m_ObjectHideFlags: 0
@@ -6654,8 +6650,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993931832cd1b084fb7c9936f512ea4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 0
-  maxHP: 0
 --- !u!1 &1385575357
 GameObject:
   m_ObjectHideFlags: 0
@@ -7074,6 +7068,7 @@ GameObject:
   - component: {fileID: 1727845968}
   - component: {fileID: 1727845967}
   - component: {fileID: 1727845966}
+  - component: {fileID: 1727845969}
   m_Layer: 5
   m_Name: HeartsContainer
   m_TagString: Untagged
@@ -7169,6 +7164,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727845964}
   m_CullTransparentMesh: 1
+--- !u!114 &1727845969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727845964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45d5c7ad92f5e4438d27615cdba4bd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hearts: []
 --- !u!1 &1806400232
 GameObject:
   m_ObjectHideFlags: 0
@@ -9214,7 +9222,7 @@ GameObject:
   - component: {fileID: 2022662137}
   m_Layer: 5
   m_Name: HeartImage (4)
-  m_TagString: Untagged
+  m_TagString: HeartHealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9236,7 +9244,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 25, y: 23}
+  m_SizeDelta: {x: 25, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2022662137
 MonoBehaviour:
@@ -9289,7 +9297,7 @@ GameObject:
   - component: {fileID: 2031484936}
   m_Layer: 5
   m_Name: HeartImage (1)
-  m_TagString: Untagged
+  m_TagString: HeartHealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9311,7 +9319,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 25, y: 23}
+  m_SizeDelta: {x: 25, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2031484936
 MonoBehaviour:
@@ -9364,7 +9372,7 @@ GameObject:
   - component: {fileID: 2070186038}
   m_Layer: 5
   m_Name: HeartImage
-  m_TagString: Untagged
+  m_TagString: HeartHealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9386,7 +9394,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 25, y: 23}
+  m_SizeDelta: {x: 25, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2070186038
 MonoBehaviour:

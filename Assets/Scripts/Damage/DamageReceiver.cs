@@ -5,8 +5,8 @@ using UnityEngine;
 
 public abstract class DamageReceiver : MonoBehaviour
 {
-    [SerializeField] protected int currentHP;
-    [SerializeField] protected int maxHP;
+    public int CurrentHP { get; protected set; }
+    public int MaxHP { get; protected set; }
     public bool IsDead { get; protected set; }
 
     // Player is being hit
@@ -16,11 +16,11 @@ public abstract class DamageReceiver : MonoBehaviour
     {
         if (IsDead) return false;
 
-        currentHP += amount;
+        CurrentHP += amount;
 
-        if (currentHP > maxHP)
+        if (CurrentHP > MaxHP)
         {
-            currentHP = maxHP;
+            CurrentHP = MaxHP;
             return false;
         }
 
@@ -31,12 +31,12 @@ public abstract class DamageReceiver : MonoBehaviour
     {
         if (IsDead || IsBeingHit) return;
 
-        currentHP -= amount;
+        CurrentHP -= amount;
 
 
-        if (currentHP <= 0)
+        if (CurrentHP <= 0)
         {
-            currentHP = 0;
+            CurrentHP = 0;
             IsDead = true;
             DeadHandle();
             return;

@@ -11,8 +11,8 @@ public class PlayerDamageReceiver : DamageReceiver
     private void Start()
     {
         playerSO = Resources.Load<CharacterSO>("Player");
-        maxHP = playerSO.maxHP;
-        currentHP = maxHP;
+        MaxHP = playerSO.maxHP;
+        CurrentHP = MaxHP;
         playerAnimation = transform.parent.GetComponentInChildren<PlayerAnimation>();
     }
 

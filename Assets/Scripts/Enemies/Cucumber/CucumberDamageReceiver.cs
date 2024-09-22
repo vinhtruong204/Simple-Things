@@ -12,8 +12,8 @@ public class CucumberDamageReceiver : DamageReceiver
     {
         cucumberController = transform.parent.GetComponent<CucumberController>();
         cucumberAnimation = cucumberController.CucumberAnimation;
-        maxHP = cucumberController.CucumberSO.maxHP;
-        currentHP = maxHP;
+        MaxHP = cucumberController.CucumberSO.maxHP;
+        CurrentHP = MaxHP;
     }
 
     protected override void HitHandle()
