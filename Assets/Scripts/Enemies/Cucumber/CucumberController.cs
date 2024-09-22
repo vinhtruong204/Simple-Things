@@ -15,7 +15,7 @@ public class CucumberController : MonoBehaviour
         CucumberAnimation = GetComponentInChildren<CucumberAnimation>();
         CucumberMovement = GetComponentInChildren<CucumberMovement>();
         CucumberDamageSender = GetComponentInChildren<CucumberDamageSender>();
-        CucumberSO = Resources.Load<CharacterSO>("Enemy/Cucumber");
+        CucumberSO = Resources.Load<CharacterSO>("Enemy/" + gameObject.name);
     }
 
     private void OnCollisionStay2D(Collision2D other)

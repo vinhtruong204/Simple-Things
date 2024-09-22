@@ -12,14 +12,19 @@ public abstract class DamageReceiver : MonoBehaviour
     // Player is being hit
     public bool IsBeingHit { get; protected set; }
 
-    public void Add(int amount)
+    public bool Add(int amount)
     {
-        if (IsDead) return;
+        if (IsDead) return false;
 
         currentHP += amount;
 
         if (currentHP >= maxHP)
+        {
             currentHP = maxHP;
+            return false;
+        }
+
+        return true;
     }
 
     public void Deduct(int amount)

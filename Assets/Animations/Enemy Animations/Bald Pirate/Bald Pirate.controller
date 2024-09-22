@@ -71,7 +71,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 40f6f78ab5e991b4793e219907efcf26, type: 2}
+  m_Motion: {fileID: 7400000, guid: 31862c3acdf46aa4db4a52414f589fa0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -83,7 +83,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Model
+  m_Name: Bald Pirate
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsAttacking
@@ -156,7 +156,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2af88ed1bbd9eec4595a05b0f9696678, type: 2}
+  m_Motion: {fileID: 7400000, guid: 67cfce93783f5c849b57226fa61872cd, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -219,7 +219,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6d924fa43cd54dc4185d68a20dec67e8, type: 2}
+  m_Motion: {fileID: 7400000, guid: bbd142417e3561f4088cf447b81f9326, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -246,7 +246,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 22b7b0b200553004dbcc9ad1a3f98af7, type: 2}
+  m_Motion: {fileID: 7400000, guid: f596f6ea26a54fc4ba34d3b80f0d051a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -320,7 +320,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f59fc69578c942d45aadaa6e85bf8d89, type: 2}
+  m_Motion: {fileID: 7400000, guid: ff72af293a7c54c4e9ebb5136c9d576e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
