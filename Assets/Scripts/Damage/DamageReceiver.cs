@@ -18,7 +18,7 @@ public abstract class DamageReceiver : MonoBehaviour
 
         currentHP += amount;
 
-        if (currentHP >= maxHP)
+        if (currentHP > maxHP)
         {
             currentHP = maxHP;
             return false;

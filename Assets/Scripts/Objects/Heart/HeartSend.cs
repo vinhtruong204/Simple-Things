@@ -21,6 +21,7 @@ public class HeartSend : MonoBehaviour
         if (other.transform.GetComponentInChildren<DamageReceiver>().Add(1))
         {
             collected = true;
+
             // Play collected animation
             heartAnimation.PlayCollectedAnimation();
         }
