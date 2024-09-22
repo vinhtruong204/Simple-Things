@@ -10,6 +10,7 @@ public class PlayerThrowBomb : MonoBehaviour
     {
         playerDamageReceiver = transform.parent.GetComponentInChildren<PlayerDamageReceiver>();
     }
+
     // Update is called once per frame
     private void Update()
     {

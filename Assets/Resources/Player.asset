@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Bomb Guy
   maxHP: 5
+  amountDamage: 0
