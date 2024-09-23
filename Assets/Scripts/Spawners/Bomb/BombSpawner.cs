@@ -12,12 +12,11 @@ public class BombSpawner : Spawner
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
             return;
         }
 
         Instance = this;
-        DontDestroyOnLoad(transform.parent.gameObject);
     }
 
     private void Start()
