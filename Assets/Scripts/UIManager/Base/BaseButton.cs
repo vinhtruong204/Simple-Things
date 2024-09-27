@@ -9,8 +9,7 @@ public abstract class BaseButton : MonoBehaviour
 {
     [SerializeField] protected Button button;
 
-    // Start is called before the first frame update
-    protected void Start()
+    protected void Awake()
     {
         LoadButton();
 

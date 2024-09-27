@@ -8931,7 +8931,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 1001845667}
   m_HandleRect: {fileID: 1617260191}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.5
@@ -8951,6 +8951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
+  audioMixer: {fileID: 0}
 --- !u!1 &1617260190
 GameObject:
   m_ObjectHideFlags: 0
@@ -9378,9 +9379,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e65e0f879ea77a438121b2a110532e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  clips: []
   audioSource: {fileID: 0}
-  guids: []
 --- !u!82 &1736615103
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9782,9 +9782,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a9ddf4092551f248b39ce8329d5bf1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  clips: []
   audioSource: {fileID: 0}
-  guids: []
 --- !u!82 &1828376426
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9796,7 +9795,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6757400762146067345, guid: 6c09c3c66871b89478769e0aba21d31b, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -11821,10 +11820,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1493697591}
   m_HandleRect: {fileID: 568959704}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.783
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11841,6 +11840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
+  audioMixer: {fileID: 0}
 --- !u!1 &1992490128
 GameObject:
   m_ObjectHideFlags: 0

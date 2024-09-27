@@ -8,7 +8,7 @@ public abstract class BaseSlider : MonoBehaviour
 {
     [SerializeField] protected Slider slider;
 
-    private void Awake()
+    protected void Awake()
     {
         LoadSlider();
 

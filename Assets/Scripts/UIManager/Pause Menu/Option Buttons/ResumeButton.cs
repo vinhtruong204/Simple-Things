@@ -7,9 +7,8 @@ public class ResumeButton : BaseButton
 {
     [SerializeField] private GameObject pauseMenu;
 
-    private new void Start()
+    private void Start()
     {
-        base.Start();
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
     }
 
