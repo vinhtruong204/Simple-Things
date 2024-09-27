@@ -7,9 +7,8 @@ public class PauseButton : BaseButton
 {
     [SerializeField] private GameObject pauseMenu;
 
-    private new void Start()
+    private void Start()
     {
-        base.Start();
         pauseMenu = transform.parent.GetChild(2).gameObject;
         // pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
     }

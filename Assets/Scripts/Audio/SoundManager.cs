@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -9,39 +10,35 @@ public abstract class SoundManager : MonoBehaviour
 {
 
     [SerializeField]
-    protected Sound[] sounds;
+    protected AudioClip[] clips;
 
+    [SerializeField]
     protected AudioSource audioSource;
 
     protected void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
-        LoadSound();
+        LoadComponents();
+        LoadAudioClips();
     }
 
-    protected void LoadSound()
+    private void LoadComponents()
     {
-        foreach (Sound s in sounds)
-        {
-            s.audioSource = audioSource;
-            s.audioSource.clip = s.clip;
-            s.audioSource.volume = s.volume;
-            s.audioSource.pitch = s.pitch;
-            s.audioSource.loop = s.loop;
-            s.audioSource.playOnAwake = s.playOnAwake;
-        }
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void PlaySound(string name)
     {
-        Sound sound = Array.Find(sounds, sound => sound.name == name);
+        AudioClip clip = Array.Find(clips, clip => clip.name == name);
 
-        if (sound == null)
+        if (clip == null)
         {
             Debug.LogWarning($"Sound {name} not found!");
             return;
         }
 
-        sound.audioSource.Play();
+        audioSource.clip = clip;
+        audioSource.Play();
     }
+
+    protected abstract void LoadAudioClips();
 }
