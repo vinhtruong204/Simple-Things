@@ -10,7 +10,7 @@ public class PlayerDamageReceiver : DamageReceiver
 
     private void Start()
     {
-        playerSO = Resources.Load<CharacterSO>("Player");
+        playerSO = Resources.Load<CharacterSO>(ScriptableObjectString.PlayerSOPath.PATH);
         MaxHP = playerSO.maxHP;
         CurrentHP = MaxHP;
         playerAnimation = transform.parent.GetComponentInChildren<PlayerAnimation>();

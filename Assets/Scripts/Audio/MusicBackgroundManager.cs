@@ -24,13 +24,13 @@ public class MusicBackgroundManager : SoundManager
 
     private void Start()
     {
-        PlaySound("ThemeSong");
+        PlaySound(AudioString.MusicString.NAME_MUSIC_BACKGROUND);
     }
 
     protected override void LoadAudioClips()
     {
-        string[] guids = AssetDatabase.FindAssets("t:AudioClip",
-                            new string[] { "Assets/Audio/MusicBackground" });
+        string[] guids = AssetDatabase.FindAssets(AudioString.AUDIO_FILTER,
+                            new string[] { AudioString.MusicString.MUSIC_BACKGROUND_PATH });
 
         clips = new AudioClip[guids.Length];
 

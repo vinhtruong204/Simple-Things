@@ -36,12 +36,12 @@ public class BombAnimation : MonoBehaviour
 
     private void SetAnimationType()
     {
-        animator.SetFloat("Time", timer);
+        animator.SetFloat(BombString.BombAnimationParameter.TIME, timer);
 
         if (timer >= explosionTime)
         {
             IsExploded = true;
-            animator.SetBool("Finished", IsExploded); // Start run boom animation
+            animator.SetBool(BombString.BombAnimationParameter.FINISHED, IsExploded); // Start run boom animation
         }
     }
 

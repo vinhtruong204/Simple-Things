@@ -26,17 +26,17 @@ public class SoundFXManager : SoundManager
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            PlaySound("Collect");
+            PlaySound(AudioString.SoundString.COLLECTED);
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            PlaySound("EnemyAttack");
+            PlaySound(AudioString.SoundString.ENEMY_ATTACK);
         }
     }
 
     protected override void LoadAudioClips()
     {
-        string[] guids = AssetDatabase.FindAssets("t:AudioClip", new string[] { "Assets/Audio/SoundEffect" });
+        string[] guids = AssetDatabase.FindAssets(AudioString.AUDIO_FILTER, new string[] { AudioString.SoundString.SOUND_EFFECT_PATH });
         clips = new AudioClip[guids.Length];
 
         for (int i = 0; i < clips.Length; i++)

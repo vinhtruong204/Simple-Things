@@ -61,14 +61,19 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation
         if (playerDamageReceiver.IsDead) return;
 
         // Set animation animation style depend on current character statesF
-        animator.SetBool("IsJumping", !playerMovement.IsGrounded);
-        animator.SetFloat("MoveX", Mathf.Abs(playerRb2D.velocity.x));
-        animator.SetFloat("MoveY", playerRb2D.velocity.y);
+        animator.SetBool(PlayerString.PlayerAnimationParameters.IS_JUMPING,
+                        !playerMovement.IsGrounded);
+
+        animator.SetFloat(PlayerString.PlayerAnimationParameters.MOVE_X,
+                        Mathf.Abs(playerRb2D.velocity.x));
+
+        animator.SetFloat(PlayerString.PlayerAnimationParameters.MOVE_Y,
+                        playerRb2D.velocity.y);
     }
 
     public void PlayHitAnimation()
     {
-        animator.SetTrigger("IsBeingHit");
+        animator.SetTrigger(PlayerString.PlayerAnimationParameters.IS_BEING_HIT);
     }
 
     public void HitFinished()
@@ -78,7 +83,7 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation
 
     public void PlayDeadHitAnimation()
     {
-        animator.SetTrigger("DeadHit");
+        animator.SetTrigger(PlayerString.PlayerAnimationParameters.DEAD_HIT);
     }
 
     public void DeadGroundFinished()

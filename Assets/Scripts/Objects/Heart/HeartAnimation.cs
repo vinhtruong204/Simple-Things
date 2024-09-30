@@ -13,7 +13,7 @@ public class HeartAnimation : MonoBehaviour
 
     public void PlayCollectedAnimation()
     {
-        animator.SetTrigger("Collected");
+        animator.SetTrigger(ObjectString.HeartAnimationParameters.COLLECTED);
     }
 
     public void CollectedFinished()

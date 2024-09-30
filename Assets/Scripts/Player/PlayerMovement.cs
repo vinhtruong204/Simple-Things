@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
         MoveHorizontal();
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.Space))
             Jump();
     }
 

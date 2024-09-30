@@ -53,7 +53,7 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation
         // if enemy is being hit => can't attack
         if (cucumberDamageReceiver.IsBeingHit || cucumberDamageReceiver.IsDead) return;
 
-        animator.SetBool("IsAttacking", isAttacking);
+        animator.SetBool(EnemyString.CucumberString.IS_ATTACKING, isAttacking);
     }
 
     public void Flip()
@@ -83,7 +83,7 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation
 
     public void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.name != "Player") return;
+        if (other.gameObject.name != GameObjectString.GameObjectName.PLAYER_NAME) return;
 
         isAttacking = true;
 
@@ -97,7 +97,7 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation
 
     public void PlayHitAnimation()
     {
-        animator.SetTrigger("IsBeingHit");
+        animator.SetTrigger(EnemyString.CucumberString.IS_BEING_HIT);
     }
 
     public void HitFinished()
@@ -107,7 +107,7 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation
 
     public void PlayDeadHitAnimation()
     {
-        animator.SetTrigger("DeadHit");
+        animator.SetTrigger(EnemyString.CucumberString.DEAD_HIT);
     }
 
     public void DeadGroundFinished()
