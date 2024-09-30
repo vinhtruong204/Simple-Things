@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     // Check collide with ground
     public bool IsGrounded { get; private set; }
 
+    [SerializeField] private Joystick joystick;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -34,6 +36,10 @@ public class PlayerMovement : MonoBehaviour
     private void GetUserInput()
     {
         HorizontalInput = Input.GetAxisRaw("Horizontal");
+
+
+        if (HorizontalInput == 0)
+            HorizontalInput = joystick.Horizontal;
     }
 
     private void FixedUpdate()
@@ -56,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         PlayerRb2D.velocity = new Vector2(HorizontalInput * playerSpeed, PlayerRb2D.velocity.y);
     }
 
-    private void Jump()
+    public void Jump()
     {
         // If out of jumps
         if (jumpsLeft <= 0)
