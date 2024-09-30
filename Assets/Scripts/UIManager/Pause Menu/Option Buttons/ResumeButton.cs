@@ -9,7 +9,7 @@ public class ResumeButton : BaseButton
 
     private void Start()
     {
-        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        pauseMenu = GameObject.FindGameObjectWithTag(GameObjectString.GameObjectTag.PAUSE_MENU_TAG);
     }
 
     protected override void OnClick()

@@ -7,6 +7,6 @@ public class MusicSlider : BaseVolumeSlider
 {
     protected override void OnValueChanged(float value)
     {
-        audioMixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
+        audioMixer.SetFloat(AudioString.MusicString.MUSIC_VOLUME, Mathf.Log10(value) * 20);
     }
 }

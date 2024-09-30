@@ -7,7 +7,7 @@ public class HomeButton : BaseButton
 {
     protected override void OnClick()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene(0);
         Time.timeScale = 1.0f;
     }
 }

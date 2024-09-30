@@ -7,6 +7,6 @@ public class PlayButton : BaseButton
 {
     protected override void OnClick()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene(1);
     }
 }

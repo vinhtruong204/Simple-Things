@@ -12,7 +12,7 @@ public class HealthBarManager : MonoBehaviour
 
     private void Start()
     {
-        hearts = GameObject.FindGameObjectsWithTag("HeartHealthBar");
+        hearts = GameObject.FindGameObjectsWithTag(GameObjectString.GameObjectTag.HEART_TAG);
 
         playerDamageReceiver = GameObjectManager.Instance.Player.GetComponentInChildren<PlayerDamageReceiver>();
     }

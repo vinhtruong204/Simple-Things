@@ -3,6 +3,7 @@ public static class AudioString
 {
     // Audio filter
     public const string AUDIO_FILTER = "t:AudioClip";
+    public const string AUDIO_MIXER_FILTER = "t:AudioMixer";
 
 
     // Music
@@ -10,6 +11,9 @@ public static class AudioString
     {
         public const string MUSIC_BACKGROUND_PATH = "Assets/Audio/MusicBackground";
         public const string NAME_MUSIC_BACKGROUND = "ThemeSong";
+
+        // Music parameter in audio mixer
+        public const string MUSIC_VOLUME = "MusicVolume";
     }
 
 
@@ -27,6 +31,13 @@ public static class AudioString
         public const string JUMP = "Jump";
         public const string NEW_MAP = "NewMap";
 
+        // Music parameter in audio mixer
+        public const string SOUND_VOLUME = "SoundVolume";
+    }
+
+    public static class AudioMixerString
+    {
+        public const string AUDIO_MIXER_PATH = "Assets/Audio/AudioMixer";
     }
 }
 
