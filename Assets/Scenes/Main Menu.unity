@@ -1707,7 +1707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 0}
-  helpPanel: {fileID: 0}
+  helpPanel: {fileID: 399276093}
 --- !u!1 &793176093
 GameObject:
   m_ObjectHideFlags: 0
