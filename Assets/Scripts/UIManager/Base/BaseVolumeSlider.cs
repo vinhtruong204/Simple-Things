@@ -1,7 +1,9 @@
 using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Audio;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public abstract class BaseVolumeSlider : BaseSlider
 {
@@ -15,11 +17,21 @@ public abstract class BaseVolumeSlider : BaseSlider
 
     private void LoadAudioMixer()
     {
-        // Get gobal unique identity string
-        string[] guids = AssetDatabase.FindAssets(AudioString.AUDIO_MIXER_FILTER, new string[] { AudioString.AudioMixerString.AUDIO_MIXER_PATH });
+        // Load one audio mixer
+        AsyncOperationHandle<AudioMixer> handle = Addressables.LoadAssetAsync<AudioMixer>("Assets/Audio/AudioMixer/MainMixer.mixer");
 
-        // There is only one path to the main audio mixer file
-        audioMixer = AssetDatabase.LoadAssetAtPath<AudioMixer>(AssetDatabase.GUIDToAssetPath(guids[0]));
+        handle.Completed += Load_Completed;
 
+    }
+
+    private void Load_Completed(AsyncOperationHandle<AudioMixer> handle)
+    {
+        if (handle.Status != AsyncOperationStatus.Succeeded)
+        {
+            Debug.LogWarning("Some assets could not loaded");
+            return;
+        }
+
+        audioMixer = handle.Result;
     }
 }

@@ -1337,6 +1337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f1079122046ba4a800692fba3d4df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 0}
 --- !u!1 &354586016
 GameObject:
   m_ObjectHideFlags: 0
@@ -9887,6 +9888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips: []
   audioSource: {fileID: 0}
+  audioMixer: {fileID: 0}
 --- !u!82 &1736615103
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10290,6 +10292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips: []
   audioSource: {fileID: 0}
+  audioMixer: {fileID: 0}
 --- !u!82 &1828376426
 AudioSource:
   m_ObjectHideFlags: 0

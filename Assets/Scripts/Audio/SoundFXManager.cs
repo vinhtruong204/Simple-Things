@@ -1,8 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Audio;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class SoundFXManager : SoundManager
 {
@@ -36,12 +40,35 @@ public class SoundFXManager : SoundManager
 
     protected override void LoadAudioClips()
     {
-        string[] guids = AssetDatabase.FindAssets(AudioString.AUDIO_FILTER, new string[] { AudioString.SoundString.SOUND_EFFECT_PATH });
-        clips = new AudioClip[guids.Length];
+        clips = new();
 
-        for (int i = 0; i < clips.Length; i++)
+        AsyncOperationHandle<IList<AudioClip>> handle = Addressables.LoadAssetsAsync<AudioClip>(new List<string>() { "SoundFX" },
+        addressables =>
         {
-            clips[i] = AssetDatabase.LoadAssetAtPath<AudioClip>(AssetDatabase.GUIDToAssetPath(guids[i]));
+            if (addressables != null)
+            {
+                clips.Add(addressables);
+            }
+        },
+        Addressables.MergeMode.Union,
+        false);
+
+        handle.Completed += Load_Completed;
+    }
+
+    private void Load_Completed(AsyncOperationHandle<IList<AudioClip>> handle)
+    {
+        if (handle.Status != AsyncOperationStatus.Succeeded)
+        {
+            Debug.LogWarning("Some audio assets could not loaded");
+            return;
         }
+
+    }
+
+    protected override void InitialVolume()
+    {
+        float value = PlayerPrefs.GetFloat(AudioString.SoundString.SOUND_VOLUME);
+        audioMixer.SetFloat(AudioString.SoundString.SOUND_VOLUME, Mathf.Log10(value) * 20);
     }
 }

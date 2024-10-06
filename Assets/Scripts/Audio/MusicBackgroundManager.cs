@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using System;
+using System.Collections.Generic;
 
 public class MusicBackgroundManager : SoundManager
 {
@@ -22,22 +23,38 @@ public class MusicBackgroundManager : SoundManager
         DontDestroyOnLoad(transform.parent.gameObject);
     }
 
-    private void Start()
+    protected override void LoadAudioClips()
     {
+        clips = new();
+
+        AsyncOperationHandle<IList<AudioClip>> handle = Addressables.LoadAssetsAsync<AudioClip>(new List<string>() { "MusicBackground" },
+        addressables =>
+        {
+            if (addressables != null)
+            {
+                clips.Add(addressables);
+            }
+        },
+        Addressables.MergeMode.Union,
+        false);
+
+        handle.Completed += Load_Completed;
+    }
+
+    private void Load_Completed(AsyncOperationHandle<IList<AudioClip>> handle)
+    {
+        if (handle.Status != AsyncOperationStatus.Succeeded)
+        {
+            Debug.LogWarning("Some audio assets could not loaded");
+            return;
+        }
+
         PlaySound(AudioString.MusicString.NAME_MUSIC_BACKGROUND);
     }
 
-    protected override void LoadAudioClips()
+    protected override void InitialVolume()
     {
-        string[] guids = AssetDatabase.FindAssets(AudioString.AUDIO_FILTER,
-                            new string[] { AudioString.MusicString.MUSIC_BACKGROUND_PATH });
-
-        clips = new AudioClip[guids.Length];
-
-        for (int i = 0; i < clips.Length; i++)
-        {
-            clips[i] = AssetDatabase.LoadAssetAtPath<AudioClip>(
-                AssetDatabase.GUIDToAssetPath(guids[i]));
-        }
+        float value = PlayerPrefs.GetFloat(AudioString.MusicString.MUSIC_VOLUME);
+        audioMixer.SetFloat(AudioString.MusicString.MUSIC_VOLUME, Mathf.Log10(value) * 20);
     }
 }

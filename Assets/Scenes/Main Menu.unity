@@ -634,6 +634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips: []
   audioSource: {fileID: 0}
+  audioMixer: {fileID: 0}
 --- !u!1 &391464138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,6 +1196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips: []
   audioSource: {fileID: 0}
+  audioMixer: {fileID: 0}
 --- !u!1 &719129594
 GameObject:
   m_ObjectHideFlags: 0
