@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour, IDamageAnimation
+public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEvent
 {
     // Animation control
     private Animator animator;
@@ -20,11 +20,44 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation
 
     private void Start()
     {
+        GetAllComponents();
+        
+        AddAnimationEvent();
+    }
+
+    private void GetAllComponents()
+    {
         animator = GetComponent<Animator>();
         playerMovement = transform.parent.GetComponentInChildren<PlayerMovement>();
         playerDamageReceiver = transform.parent.GetComponentInChildren<PlayerDamageReceiver>();
         playerRb2D = GetComponentInParent<Rigidbody2D>();
         scale = transform.parent.localScale;
+    }
+
+    public void AddAnimationEvent()
+    {
+        foreach (AnimationClip clip in animator.runtimeAnimatorController.animationClips)
+        {
+            AnimationEvent aniEvent = new()
+            {
+                time = clip.length
+            };
+
+            switch (clip.name)
+            {
+                case "Hit":
+                    aniEvent.functionName = nameof(HitFinished);
+                    break;
+                case "Dead Ground":
+                    aniEvent.functionName = nameof(DeadGroundFinished);
+                    break;
+                default:
+                    continue;
+            }
+
+            clip.AddEvent(aniEvent);
+        }
+
     }
 
     private void Update()

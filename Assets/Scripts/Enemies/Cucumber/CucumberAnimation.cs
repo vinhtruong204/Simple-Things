@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class CucumberAnimation : MonoBehaviour, IDamageAnimation
+public class CucumberAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEvent
 {
     private bool isAttacking;
     private BoxCollider2D enemyAttackBox;
@@ -26,6 +27,37 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation
         LoadPlayerComponents();
 
         LoadAllComponents();
+
+        AddAnimationEvent();
+    }
+
+    public void AddAnimationEvent()
+    {
+        foreach (AnimationClip clip in animator.runtimeAnimatorController.animationClips)
+        {
+            AnimationEvent aniEvent = new()
+            {
+                time = clip.length
+            };
+
+            switch (clip.name)
+            {
+                case "Hit":
+                    aniEvent.functionName = nameof(HitFinished);
+                    break;
+                case "Attack":
+                    aniEvent.functionName = nameof(AttackFinished);
+                    break;
+                case "Dead Ground":
+                    aniEvent.functionName = nameof(DeadGroundFinished);
+                    break;
+                default:
+                    continue;
+            }
+
+            clip.AddEvent(aniEvent);
+        }
+
     }
 
     private void LoadPlayerComponents()
