@@ -7,7 +7,7 @@ using System;
 
 public class BombPool : ObjectPooling
 {
-    private readonly int amountInitial = 10;
+    private readonly int amountInitial = 5;
     private AsyncOperationHandle<GameObject> handle;
 
     // Start is called before the first frame update

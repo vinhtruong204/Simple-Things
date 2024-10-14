@@ -5,11 +5,19 @@ using UnityEngine;
 
 public class PlayerThrowBomb : MonoBehaviour
 {
+    // Check player deaded
     private PlayerDamageReceiver playerDamageReceiver;
+
+    // Handle active game object bombBar
+    private BombBarAnimation bombBarAnimation;
+
+    // Can
+
 
     private void Start()
     {
         playerDamageReceiver = transform.parent.GetComponentInChildren<PlayerDamageReceiver>();
+        bombBarAnimation = transform.parent.GetComponentInChildren<BombBarAnimation>();
     }
 
     // Update is called once per frame
@@ -25,8 +33,10 @@ public class PlayerThrowBomb : MonoBehaviour
 
     public void ThrowBomb()
     {
-        if (playerDamageReceiver.IsDead) return;
+        // If the player is dead or has not completed the bomb charging animation
+        if (playerDamageReceiver.IsDead || !bombBarAnimation.CanThrowBomb) return;
 
+        bombBarAnimation.gameObject.SetActive(true);
         BombSpawner.Instance.SpawnObject();
     }
 }

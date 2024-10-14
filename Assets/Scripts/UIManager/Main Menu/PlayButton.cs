@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class PlayButton : BaseButton
 {
-    public Slider slider;
-    public TMP_Text percentText;
+    public GameObject loadingPanel;
+    
     private new void Awake()
     {
         QualitySettings.vSyncCount = 0;
@@ -17,21 +18,8 @@ public class PlayButton : BaseButton
     }
     protected override void OnClick()
     {
-        StartCoroutine(LoadSceneAsynchronously(1));
+        loadingPanel.SetActive(true);
+        transform.parent.gameObject.SetActive(false);
     }
 
-    IEnumerator LoadSceneAsynchronously(int sceneIndex)
-    {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-
-        while (!operation.isDone)
-        {
-            float progress = Mathf.Clamp01(operation.progress / 0.9f);
-
-            slider.value = progress;
-            percentText.text = progress * 100.0f + "%";
-
-            yield return null;
-        }
-    }
 }
