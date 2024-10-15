@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         HorizontalInput = Input.GetAxisRaw("Horizontal");
 
 
-        if (HorizontalInput == 0)
+        if (HorizontalInput == 0.0f)
             HorizontalInput = joystick.Horizontal;
     }
 
