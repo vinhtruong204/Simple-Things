@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEvent
 {
@@ -101,6 +102,9 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
         {
             animator.SetTrigger(PlayerString.PlayerAnimationParameters.IS_JUMPING);
             isJumping = true;
+
+            // Play sound
+            SoundFXManager.Instance.PlaySound(AudioString.SoundString.JUMP);
         }
 
         if (playerMovement.IsGrounded && isJumping)

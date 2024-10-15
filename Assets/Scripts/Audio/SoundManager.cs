@@ -33,7 +33,6 @@ public abstract class SoundManager : MonoBehaviour
         AsyncOperationHandle<AudioMixer> handle = Addressables.LoadAssetAsync<AudioMixer>("Assets/Audio/AudioMixer/MainMixer.mixer");
 
         handle.Completed += Load_Completed;
-
     }
 
     private void Load_Completed(AsyncOperationHandle<AudioMixer> handle)
@@ -57,6 +56,8 @@ public abstract class SoundManager : MonoBehaviour
             Debug.LogWarning($"Sound {name} not found!");
             return;
         }
+
+        if (audioSource.isPlaying && audioSource.clip == clip) return;  
 
         audioSource.clip = clip;
         audioSource.Play();

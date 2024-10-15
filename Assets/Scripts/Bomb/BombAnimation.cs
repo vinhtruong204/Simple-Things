@@ -42,6 +42,9 @@ public class BombAnimation : MonoBehaviour
         {
             IsExploded = true;
             animator.SetBool(BombString.BombAnimationParameter.FINISHED, IsExploded); // Start run boom animation
+
+            // Play exploded sound
+            SoundFXManager.Instance.PlaySound(AudioString.SoundString.EXPLODED);
         }
     }
 

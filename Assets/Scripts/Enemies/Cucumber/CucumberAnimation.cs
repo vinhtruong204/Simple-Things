@@ -119,6 +119,9 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationE
 
         isAttacking = true;
 
+        // Play attack sound
+        SoundFXManager.Instance.PlaySound(AudioString.SoundString.ENEMY_ATTACK);
+
         // Player direction oposite with enemy
         if (other.gameObject.transform.localScale.x * transform.parent.localScale.x > 0.0f)
         {

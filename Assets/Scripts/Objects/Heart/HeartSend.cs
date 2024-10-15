@@ -24,6 +24,9 @@ public class HeartSend : MonoBehaviour
 
             // Play collected animation
             heartAnimation.PlayCollectedAnimation();
+
+            // Play sound
+            SoundFXManager.Instance.PlaySound(AudioString.SoundString.COLLECTED);
         }
     }
 }

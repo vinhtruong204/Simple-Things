@@ -26,18 +26,6 @@ public class SoundFXManager : SoundManager
         DontDestroyOnLoad(transform.parent.gameObject);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            PlaySound(AudioString.SoundString.COLLECTED);
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            PlaySound(AudioString.SoundString.ENEMY_ATTACK);
-        }
-    }
-
     protected override void LoadAudioClips()
     {
         clips = new();
