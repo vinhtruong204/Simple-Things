@@ -18,10 +18,13 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
     // Hit handle
     private PlayerDamageReceiver playerDamageReceiver;
 
+    // Jumping
+    private bool isJumping;
+
     private void Start()
     {
         GetAllComponents();
-        
+
         AddAnimationEvent();
     }
 
@@ -94,14 +97,23 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
         if (playerDamageReceiver.IsDead) return;
 
         // Set animation animation style depend on current character statesF
-        animator.SetBool(PlayerString.PlayerAnimationParameters.IS_JUMPING,
-                        !playerMovement.IsGrounded);
+        if (!playerMovement.IsGrounded && !isJumping)
+        {
+            animator.SetTrigger(PlayerString.PlayerAnimationParameters.IS_JUMPING);
+            isJumping = true;
+        }
+
+        if (playerMovement.IsGrounded && isJumping)
+        {
+            animator.SetTrigger(PlayerString.PlayerAnimationParameters.IS_GROUND);
+            isJumping = false;
+        }
 
         animator.SetFloat(PlayerString.PlayerAnimationParameters.MOVE_X,
-                        Mathf.Abs(playerRb2D.velocity.x));
+        Mathf.Abs(playerRb2D.velocity.x));
 
         animator.SetFloat(PlayerString.PlayerAnimationParameters.MOVE_Y,
-                        playerRb2D.velocity.y);
+        playerRb2D.velocity.y);
     }
 
     public void PlayHitAnimation()
