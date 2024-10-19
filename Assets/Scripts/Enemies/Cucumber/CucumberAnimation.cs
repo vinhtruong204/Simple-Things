@@ -90,6 +90,8 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationE
 
     public void Flip()
     {
+        if (isAttacking) return;
+
         // Get parent game object scale
         Vector3 scale = transform.parent.localScale;
 
@@ -102,7 +104,6 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationE
 
     public void AttackFinished()
     {
-
         // Send damage when finished attack animation
         if (enemyAttackBox.IsTouching(playerBox))
         {
