@@ -49,8 +49,7 @@ public class CucumberMovement : MonoBehaviour
     {
         return transform.parent.localScale.x > 0.0f;
     }
-
-
+    
     private void OnTriggerExit2D(Collider2D other)
     {
         // If enemy is changing direction 

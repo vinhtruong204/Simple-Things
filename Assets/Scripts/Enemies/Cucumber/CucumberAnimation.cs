@@ -21,6 +21,9 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationE
     // Reference movement
     private CucumberMovement cucumberMovement;
 
+    // 
+    private EnemyDetectPlayer enemyDetectPlayer;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -73,11 +76,29 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationE
         cucumberDamageSender = transform.parent.GetComponentInChildren<CucumberDamageSender>();
         cucumberDamageReceiver = transform.parent.GetComponentInChildren<CucumberDamageReceiver>();
         cucumberMovement = transform.parent.GetComponentInChildren<CucumberMovement>();
+        enemyDetectPlayer = transform.parent.GetComponentInChildren<EnemyDetectPlayer>();
+        if (enemyDetectPlayer != null)
+        {
+            Debug.Log("he");
+        }
     }
 
     private void Update()
     {
         UpdateCurrentAttackState();
+
+        // if (enemyDetectPlayer.PlayerDetected)
+        // {
+        //     if (IsFacingRight() && player.transform.position.x > transform.position.x)
+        //     {
+        //         Flip();
+        //     }
+        // }
+    }
+
+    private bool IsFacingRight()
+    {
+        return transform.parent.localScale.x > 0.0f;
     }
 
     private void UpdateCurrentAttackState()

@@ -7,6 +7,7 @@ public class CucumberController : MonoBehaviour
     public CucumberMovement CucumberMovement { get; private set; }
     public CucumberAnimation CucumberAnimation { get; private set; }
     public CucumberDamageSender CucumberDamageSender { get; private set; }
+    public EnemyDetectPlayer EnemyDetectPlayer { get; private set; }
 
     public CharacterSO CucumberSO { get; private set; }
 
@@ -15,6 +16,7 @@ public class CucumberController : MonoBehaviour
         CucumberAnimation = GetComponentInChildren<CucumberAnimation>();
         CucumberMovement = GetComponentInChildren<CucumberMovement>();
         CucumberDamageSender = GetComponentInChildren<CucumberDamageSender>();
+        EnemyDetectPlayer = GetComponentInChildren<EnemyDetectPlayer>();
         CucumberSO = Resources.Load<CharacterSO>("Enemy/" + gameObject.name);
     }
 
