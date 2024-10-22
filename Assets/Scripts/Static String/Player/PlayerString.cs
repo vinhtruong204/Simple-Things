@@ -9,4 +9,12 @@ public static class PlayerString
         public const string IS_BEING_HIT = "IsBeingHit";
         public const string DEAD_HIT = "DeadHit";
     }
+
+    public static class PlayerParticleTrigger
+    {
+        public const string JUMP = "Jump";
+        public const string GROUND = "Ground";
+        public const string BEGIN_RUN = "BeginRun";
+        public const string END_RUN = "EndRun";
+    }
 }

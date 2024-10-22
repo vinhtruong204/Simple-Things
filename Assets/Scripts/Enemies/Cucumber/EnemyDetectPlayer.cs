@@ -21,7 +21,6 @@ public class EnemyDetectPlayer : MonoBehaviour
     private void Update()
     {
         UpdatePlayerDetected();
-
     }
 
     private void UpdatePlayerDetected()

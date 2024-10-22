@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.Timeline;
 
 public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEvent
 {
@@ -21,7 +16,7 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
     private PlayerDamageReceiver playerDamageReceiver;
 
     // Jumping
-    private bool isJumping;
+    public bool IsJumping { get; private set; }
 
     private void Start()
     {
@@ -70,7 +65,6 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
         ChangeDirection();
 
         SetAnimationParameters();
-
     }
 
     private void ChangeDirection()
@@ -99,23 +93,23 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
         if (playerDamageReceiver.IsDead || playerDamageReceiver.IsBeingHit) return;
 
         // Set animation animation style depend on current character states
-        if (!playerMovement.IsGrounded && !isJumping)
+        if (!playerMovement.IsGrounded && !IsJumping)
         {
             animator.SetBool(PlayerString.PlayerAnimationParameters.IS_GROUND, false);
             animator.SetTrigger(PlayerString.PlayerAnimationParameters.IS_JUMPING);
-            isJumping = true;
+            IsJumping = true;
 
             // Play sound
             SoundFXManager.Instance.PlaySound(AudioString.SoundString.JUMP);
         }
 
-        if (playerMovement.IsGrounded && isJumping)
+        if (playerMovement.IsGrounded && IsJumping)
         {
             animator.SetBool(PlayerString.PlayerAnimationParameters.IS_GROUND, true);
-            isJumping = false;
+            IsJumping = false;
         }
 
-        if (isJumping)
+        if (IsJumping)
         {
             animator.SetFloat(PlayerString.PlayerAnimationParameters.MOVE_Y,
             playerRb2D.linearVelocity.y);
