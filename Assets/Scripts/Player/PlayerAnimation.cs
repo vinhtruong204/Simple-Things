@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Timeline;
 
@@ -68,7 +69,7 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
     {
         ChangeDirection();
 
-        SetAnimationType();
+        SetAnimationParameters();
 
     }
 
@@ -92,14 +93,15 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
         transform.parent.localScale = scale;
     }
 
-    private void SetAnimationType()
+    private void SetAnimationParameters()
     {
         // If player is deaded
-        if (playerDamageReceiver.IsDead) return;
+        if (playerDamageReceiver.IsDead || playerDamageReceiver.IsBeingHit) return;
 
-        // Set animation animation style depend on current character statesF
+        // Set animation animation style depend on current character states
         if (!playerMovement.IsGrounded && !isJumping)
         {
+            animator.SetBool(PlayerString.PlayerAnimationParameters.IS_GROUND, false);
             animator.SetTrigger(PlayerString.PlayerAnimationParameters.IS_JUMPING);
             isJumping = true;
 
@@ -109,15 +111,19 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
 
         if (playerMovement.IsGrounded && isJumping)
         {
-            animator.SetTrigger(PlayerString.PlayerAnimationParameters.IS_GROUND);
+            animator.SetBool(PlayerString.PlayerAnimationParameters.IS_GROUND, true);
             isJumping = false;
         }
 
-        animator.SetFloat(PlayerString.PlayerAnimationParameters.MOVE_X,
-        Mathf.Abs(playerRb2D.velocity.x));
+        if (isJumping)
+        {
+            animator.SetFloat(PlayerString.PlayerAnimationParameters.MOVE_Y,
+            playerRb2D.linearVelocity.y);
+            return;
+        }
 
-        animator.SetFloat(PlayerString.PlayerAnimationParameters.MOVE_Y,
-        playerRb2D.velocity.y);
+        animator.SetFloat(PlayerString.PlayerAnimationParameters.MOVE_X,
+        Mathf.Abs(playerRb2D.linearVelocity.x));
     }
 
     public void PlayHitAnimation()

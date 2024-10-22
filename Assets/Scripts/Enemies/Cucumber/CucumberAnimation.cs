@@ -77,23 +77,23 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationE
         cucumberDamageReceiver = transform.parent.GetComponentInChildren<CucumberDamageReceiver>();
         cucumberMovement = transform.parent.GetComponentInChildren<CucumberMovement>();
         enemyDetectPlayer = transform.parent.GetComponentInChildren<EnemyDetectPlayer>();
-        if (enemyDetectPlayer != null)
-        {
-            Debug.Log("he");
-        }
     }
 
     private void Update()
     {
         UpdateCurrentAttackState();
 
-        // if (enemyDetectPlayer.PlayerDetected)
-        // {
-        //     if (IsFacingRight() && player.transform.position.x > transform.position.x)
-        //     {
-        //         Flip();
-        //     }
-        // }
+        if (enemyDetectPlayer.PlayerDetected)
+        {
+            if (IsFacingRight() && player.transform.position.x < transform.position.x)
+            {
+                Flip();
+            }
+            else if (!IsFacingRight() && player.transform.position.x > transform.position.x)
+            {
+                Flip();
+            }
+        }
     }
 
     private bool IsFacingRight()

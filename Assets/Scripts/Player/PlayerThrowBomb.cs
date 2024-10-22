@@ -11,9 +11,6 @@ public class PlayerThrowBomb : MonoBehaviour
     // Handle active game object bombBar
     private BombBarAnimation bombBarAnimation;
 
-    // Can
-
-
     private void Start()
     {
         playerDamageReceiver = transform.parent.GetComponentInChildren<PlayerDamageReceiver>();

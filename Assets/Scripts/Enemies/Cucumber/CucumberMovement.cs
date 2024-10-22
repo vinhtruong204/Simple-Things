@@ -5,10 +5,18 @@ using UnityEngine;
 
 public class CucumberMovement : MonoBehaviour
 {
+    [Header("Enemy speed")]
+    private const float SPEED_NORMAL = 1.5f;
+    private const float SPEED_ACCELERATE = SPEED_NORMAL * 2.5f;
+    private float enemySpeed = SPEED_NORMAL;
+
+    // Set the enemy speed depends on the current state
+    private EnemyDetectPlayer enemyDetectPlayer;
+
+
     private Rigidbody2D enemyRb;
     private CucumberAnimation cucumberAnimation;
 
-    private float enemySpeed = 1.5f;
 
     // Prevent player change direction twice and get stuck in the wall
     protected bool isChangingDirection = false;
@@ -18,6 +26,7 @@ public class CucumberMovement : MonoBehaviour
     {
         enemyRb = GetComponentInParent<Rigidbody2D>();
         cucumberAnimation = transform.parent.GetComponentInChildren<CucumberAnimation>();
+        enemyDetectPlayer = transform.parent.GetComponentInChildren<EnemyDetectPlayer>();
     }
 
     // Update is called once per frame
@@ -25,8 +34,15 @@ public class CucumberMovement : MonoBehaviour
     {
         ResetBoolChangingDirection();
 
+        SetEnemySpeed();
+
         // Move enemy horizontal
         UpdateVelocity();
+    }
+
+    private void SetEnemySpeed()
+    {
+        enemySpeed = enemyDetectPlayer.PlayerDetected ? SPEED_ACCELERATE : SPEED_NORMAL;
     }
 
     private void ResetBoolChangingDirection()
@@ -36,20 +52,20 @@ public class CucumberMovement : MonoBehaviour
 
     private void UpdateVelocity()
     {
-        Vector2 velocity = enemyRb.velocity;
+        Vector2 velocity = enemyRb.linearVelocity;
 
         // Change move direction depend on enemy's direction
         velocity.x = IsFacingRight() ? enemySpeed : -enemySpeed;
 
         // Set new velocity
-        enemyRb.velocity = velocity;
+        enemyRb.linearVelocity = velocity;
     }
 
     private bool IsFacingRight()
     {
         return transform.parent.localScale.x > 0.0f;
     }
-    
+
     private void OnTriggerExit2D(Collider2D other)
     {
         // If enemy is changing direction 
@@ -61,5 +77,7 @@ public class CucumberMovement : MonoBehaviour
         // Flip enemy's sprite horizontal
         cucumberAnimation.Flip();
     }
+
+
 
 }

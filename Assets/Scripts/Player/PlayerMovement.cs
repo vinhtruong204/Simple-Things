@@ -55,11 +55,11 @@ public class PlayerMovement : MonoBehaviour
         // If player not running
         if (HorizontalInput == 0.0f)
         {
-            PlayerRb2D.velocity = new Vector2(0.0f, PlayerRb2D.velocity.y); // Reset velocity
+            PlayerRb2D.linearVelocity = new Vector2(0.0f, PlayerRb2D.linearVelocity.y); // Reset velocity
             return;
         }
 
-        PlayerRb2D.velocity = new Vector2(HorizontalInput * playerSpeed, PlayerRb2D.velocity.y);
+        PlayerRb2D.linearVelocity = new Vector2(HorizontalInput * playerSpeed, PlayerRb2D.linearVelocity.y);
     }
 
     public void Jump()
@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
         jumpsLeft--;
         IsGrounded = false;
-        PlayerRb2D.velocity = new Vector2(PlayerRb2D.velocity.x, jumpPower);
+        PlayerRb2D.linearVelocity = new Vector2(PlayerRb2D.linearVelocity.x, jumpPower);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
