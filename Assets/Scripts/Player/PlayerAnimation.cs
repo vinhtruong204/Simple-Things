@@ -138,6 +138,7 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
     public void DeadGroundFinished()
     {
         Debug.Log("player deaded");
+        GameStatesManager.Instance.HandleGameOver();
     }
 
 }
