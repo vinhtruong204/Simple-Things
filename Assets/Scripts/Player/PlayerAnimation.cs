@@ -17,7 +17,6 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
 
     // Jumping
     public bool IsJumping { get; private set; }
-
     private void Start()
     {
         GetAllComponents();
@@ -137,7 +136,6 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
 
     public void DeadGroundFinished()
     {
-        Debug.Log("player deaded");
         GameStatesManager.Instance.HandleGameOver();
     }
 

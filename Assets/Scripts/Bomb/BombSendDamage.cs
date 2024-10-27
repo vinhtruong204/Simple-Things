@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BombSendDamage : DamageSender
@@ -28,6 +25,11 @@ public class BombSendDamage : DamageSender
     private void Update()
     {
 
+        CheckExploded();
+    }
+
+    private void CheckExploded()
+    {
         if (bombAnimation.IsExploded)
         {
             circleCollider2D.enabled = true;

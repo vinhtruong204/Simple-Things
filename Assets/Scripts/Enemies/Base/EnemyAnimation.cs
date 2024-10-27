@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CucumberAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEvent
+public class EnemyAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEvent
 {
     private bool isAttacking;
     private BoxCollider2D enemyAttackBox;
-    private CucumberDamageSender cucumberDamageSender;
+    private EnemyDamageSender enemyDamageSender;
 
     private BoxCollider2D playerBox;
     private GameObject player;
@@ -16,12 +16,12 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationE
     private Animator animator;
 
     // Handle hit and dead hit animation
-    private CucumberDamageReceiver cucumberDamageReceiver;
+    private EnemyDamageReceiver enemyDamageReceiver;
 
     // Reference movement
-    private CucumberMovement cucumberMovement;
+    private EnemyMovement enemyMovement;
 
-    // 
+    // Detect player depend on distance and angle
     private EnemyDetectPlayer enemyDetectPlayer;
 
     // Start is called before the first frame update
@@ -73,9 +73,9 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationE
     {
         animator = GetComponent<Animator>();
         enemyAttackBox = transform.parent.GetComponent<BoxCollider2D>();
-        cucumberDamageSender = transform.parent.GetComponentInChildren<CucumberDamageSender>();
-        cucumberDamageReceiver = transform.parent.GetComponentInChildren<CucumberDamageReceiver>();
-        cucumberMovement = transform.parent.GetComponentInChildren<CucumberMovement>();
+        enemyDamageSender = transform.parent.GetComponentInChildren<EnemyDamageSender>();
+        enemyDamageReceiver = transform.parent.GetComponentInChildren<EnemyDamageReceiver>();
+        enemyMovement = transform.parent.GetComponentInChildren<EnemyMovement>();
         enemyDetectPlayer = transform.parent.GetComponentInChildren<EnemyDetectPlayer>();
     }
 
@@ -83,16 +83,20 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationE
     {
         UpdateCurrentAttackState();
 
-        if (enemyDetectPlayer.PlayerDetected)
+        UpdateEnemyDirection();
+    }
+
+    private void UpdateEnemyDirection()
+    {
+        if (!enemyDetectPlayer.PlayerDetected) return;
+
+        if (IsFacingRight() && player.transform.position.x < transform.position.x)
         {
-            if (IsFacingRight() && player.transform.position.x < transform.position.x)
-            {
-                Flip();
-            }
-            else if (!IsFacingRight() && player.transform.position.x > transform.position.x)
-            {
-                Flip();
-            }
+            Flip();
+        }
+        else if (!IsFacingRight() && player.transform.position.x > transform.position.x)
+        {
+            Flip();
         }
     }
 
@@ -104,9 +108,9 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationE
     private void UpdateCurrentAttackState()
     {
         // if enemy is being hit => can't attack
-        if (cucumberDamageReceiver.IsBeingHit || cucumberDamageReceiver.IsDead) return;
+        if (enemyDamageReceiver.IsBeingHit || enemyDamageReceiver.IsDead) return;
 
-        animator.SetBool(EnemyString.CucumberString.IS_ATTACKING, isAttacking);
+        animator.SetBool(EnemyString.EnemyAnimationParameters.IS_ATTACKING, isAttacking);
     }
 
     public void Flip()
@@ -129,7 +133,7 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationE
         if (enemyAttackBox.IsTouching(playerBox))
         {
             // Attack succeed
-            cucumberDamageSender.SendDamage(player.transform);
+            enemyDamageSender.SendDamage(player.transform);
         }
 
         isAttacking = false;
@@ -154,17 +158,17 @@ public class CucumberAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationE
 
     public void PlayHitAnimation()
     {
-        animator.SetTrigger(EnemyString.CucumberString.IS_BEING_HIT);
+        animator.SetTrigger(EnemyString.EnemyAnimationParameters.IS_BEING_HIT);
     }
 
     public void HitFinished()
     {
-        cucumberDamageReceiver.ResetIsBeingHit();
+        enemyDamageReceiver.ResetIsBeingHit();
     }
 
     public void PlayDeadHitAnimation()
     {
-        animator.SetTrigger(EnemyString.CucumberString.DEAD_HIT);
+        animator.SetTrigger(EnemyString.EnemyAnimationParameters.DEAD_HIT);
     }
 
     public void DeadGroundFinished()

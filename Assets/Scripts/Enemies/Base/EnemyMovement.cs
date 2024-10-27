@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CucumberMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     [Header("Enemy speed")]
     private const float SPEED_NORMAL = 1.5f;
@@ -15,7 +15,7 @@ public class CucumberMovement : MonoBehaviour
 
 
     private Rigidbody2D enemyRb;
-    private CucumberAnimation cucumberAnimation;
+    private EnemyAnimation enemyAnimation;
 
 
     // Prevent player change direction twice and get stuck in the wall
@@ -25,7 +25,7 @@ public class CucumberMovement : MonoBehaviour
     private void Start()
     {
         enemyRb = GetComponentInParent<Rigidbody2D>();
-        cucumberAnimation = transform.parent.GetComponentInChildren<CucumberAnimation>();
+        enemyAnimation = transform.parent.GetComponentInChildren<EnemyAnimation>();
         enemyDetectPlayer = transform.parent.GetComponentInChildren<EnemyDetectPlayer>();
     }
 
@@ -75,7 +75,7 @@ public class CucumberMovement : MonoBehaviour
         isChangingDirection = true;
 
         // Flip enemy's sprite horizontal
-        cucumberAnimation.Flip();
+        enemyAnimation.Flip();
     }
 
 

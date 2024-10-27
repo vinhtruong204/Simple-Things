@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class ObjectPooling : MonoBehaviour
 {
     protected List<GameObject> pool;
-    [SerializeField] protected GameObject objectPrefab;
+    protected GameObject objectPrefab;
     protected Transform transformParent;
 
     protected void InitialPool(int initialCount)

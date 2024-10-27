@@ -1,7 +1,7 @@
 
 public static class EnemyString
 {
-    public static class CucumberString
+    public static class EnemyAnimationParameters
     {
         // Animation parameters
         public const string IS_ATTACKING = "IsAttacking";

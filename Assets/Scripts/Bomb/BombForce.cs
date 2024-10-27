@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BombForce : MonoBehaviour
@@ -10,12 +6,7 @@ public class BombForce : MonoBehaviour
 
     private GameObject player;
 
-    private bool isPlayerFacingRight;
-
-    private Vector3 offsetRight = new(0.7f, 0.25f, 0.0f);
-    private Vector3 offsetLeft = new(-0.7f, 0.25f, 0.0f);
-
-    private readonly float magnitudeForce = 5.0f;
+    private readonly float magnitudeForce = 6.0f;
 
     private void Awake()
     {
@@ -25,34 +16,19 @@ public class BombForce : MonoBehaviour
 
     private void OnEnable()
     {
-        SetPlayerDirection();
-
         SetPosition();
 
         AddForceToBomb();
-
-    }
-
-    private void SetPlayerDirection()
-    {
-        isPlayerFacingRight = player.transform.localScale.x > Mathf.Epsilon; // x > 0.0001f
     }
 
     private void SetPosition()
     {
-        if (isPlayerFacingRight)
-        {
-            transform.parent.position = player.transform.position + offsetRight;
-        }
-        else
-        {
-            transform.parent.position = player.transform.position + offsetLeft;
-        }
+        transform.parent.position = player.transform.position;
     }
 
     private void AddForceToBomb()
     {
-        if (isPlayerFacingRight)
+        if (IsPlayerFacingRight())
         {
             bombRb.AddForce(Vector2.right * magnitudeForce, ForceMode2D.Impulse);
         }
@@ -60,5 +36,10 @@ public class BombForce : MonoBehaviour
         {
             bombRb.AddForce(Vector2.left * magnitudeForce, ForceMode2D.Impulse);
         }
+    }
+
+    private bool IsPlayerFacingRight()
+    {
+        return player.transform.localScale.x > Mathf.Epsilon; // x > 0.0001f
     }
 }
