@@ -8,8 +8,8 @@ public class EnemyDetectPlayer : MonoBehaviour
     private readonly float visionRange = 10.0f;
 
     // Offset prevent raycast start inside box collider
-    private Vector3 offsetLeft = new(-0.5f, 0f);
-    private Vector3 offsetRight = new(0.5f, 0f);
+    protected Vector3 offsetLeft = new(-0.5f, 0f);
+    protected Vector3 offsetRight = new(0.5f, 0f);
 
     public bool PlayerDetected { get; private set; }
 
@@ -38,7 +38,7 @@ public class EnemyDetectPlayer : MonoBehaviour
         RaycastHit2D raycastHit2D = Physics2D.Raycast(rayOrigin, GetDirection(), visionRange, LayerMask.GetMask("Obstacle", "ReceiveDamage"));
 
         // Test ray
-        // Debug.DrawRay(rayOrigin, GetDirection() * visionRange, Color.white);
+        Debug.DrawRay(rayOrigin, GetDirection() * visionRange, Color.white);
 
         // If raycast don't hit a collider or collider is not from player
         if (raycastHit2D.collider == null || raycastHit2D.transform.gameObject.name != GameObjectString.GameObjectName.PLAYER_NAME)
@@ -69,7 +69,7 @@ public class EnemyDetectPlayer : MonoBehaviour
     private bool PlayerInHorizontalSight()
     {
         float angle = Vector2.Angle(Vector2.right, GetDirection());
-        return (0.0f <= angle && angle <= 20.0f) || (160.0f <= angle && angle <= 180.0f);
+        return (0.0f <= angle && angle <= 5.0f) || (175.0f <= angle && angle <= 180.0f);
     }
 
     private Vector2 GetDirection()
