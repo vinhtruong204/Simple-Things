@@ -30,7 +30,7 @@ public abstract class SoundManager : MonoBehaviour
     private void LoadAudioMixer()
     {
         // Load one audio mixer
-        AsyncOperationHandle<AudioMixer> handle = Addressables.LoadAssetAsync<AudioMixer>("Assets/Audio/AudioMixer/MainMixer.mixer");
+        AsyncOperationHandle<AudioMixer> handle = Addressables.LoadAssetAsync<AudioMixer>("MainMixer");
 
         handle.Completed += Load_Completed;
     }
@@ -39,7 +39,7 @@ public abstract class SoundManager : MonoBehaviour
     {
         if (handle.Status != AsyncOperationStatus.Succeeded)
         {
-            Debug.LogWarning("Some assets could not loaded");
+            Debug.LogWarning("Audio mixer could not loaded!");
             return;
         }
 

@@ -45,7 +45,7 @@ public class MusicBackgroundManager : SoundManager
     {
         if (handle.Status != AsyncOperationStatus.Succeeded)
         {
-            Debug.LogWarning("Some audio assets could not loaded");
+            Debug.LogWarning("Music background could not loaded!");
             return;
         }
 
