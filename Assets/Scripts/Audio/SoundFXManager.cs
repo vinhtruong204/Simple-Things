@@ -48,7 +48,7 @@ public class SoundFXManager : SoundManager
     {
         if (handle.Status != AsyncOperationStatus.Succeeded)
         {
-            Debug.LogWarning("Some audio assets could not loaded");
+            Debug.LogWarning("Some sound effect assets could not loaded!");
             return;
         }
 

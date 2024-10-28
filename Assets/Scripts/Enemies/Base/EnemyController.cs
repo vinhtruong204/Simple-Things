@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class EnemyController : MonoBehaviour
 {
@@ -9,15 +12,12 @@ public class EnemyController : MonoBehaviour
     public EnemyDamageSender EnemyDamageSender { get; private set; }
     public EnemyDetectPlayer EnemyDetectPlayer { get; private set; }
 
-    public CharacterSO EnemySO { get; private set; }
-
     private void Awake()
     {
         EnemyAnimation = GetComponentInChildren<EnemyAnimation>();
         EnemyMovement = GetComponentInChildren<EnemyMovement>();
         EnemyDamageSender = GetComponentInChildren<EnemyDamageSender>();
         EnemyDetectPlayer = GetComponentInChildren<EnemyDetectPlayer>();
-        EnemySO = Resources.Load<CharacterSO>("Enemy/" + gameObject.name);
     }
 
     private void OnCollisionStay2D(Collision2D other)

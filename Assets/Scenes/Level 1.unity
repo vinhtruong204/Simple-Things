@@ -257,7 +257,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
 --- !u!1 &9548262
 GameObject:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &9548263
 Transform:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -291,7 +291,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9548264
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_AngularDamping: 0
 --- !u!114 &9548265
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_CenterOnActivate: 1
 --- !u!114 &9548266
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -378,7 +378,7 @@ Transform:
   m_GameObject: {fileID: 20594999}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.57, y: 1.99, z: 0}
+  m_LocalPosition: {x: -6.44, y: -2.5, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -436,7 +436,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.10251613, y: -0.047772646}
+  m_Offset: {x: -0.091632195, y: -0.047772646}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -446,7 +446,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5413426, y: 1.1633692}
+  m_Size: {x: 0.51957476, y: 1.1633692}
   m_EdgeRadius: 0
 --- !u!50 &20595003
 Rigidbody2D:
@@ -1364,7 +1364,7 @@ Transform:
   m_GameObject: {fileID: 177342620}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.69, y: -2.72, z: 0}
+  m_LocalPosition: {x: -0.57, y: -2.83, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2837,6 +2837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee28a6d918085041835d50f01e143cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDamageSender: {fileID: 0}
 --- !u!1 &501533029
 GameObject:
   m_ObjectHideFlags: 0
@@ -2928,6 +2929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ac20b69f69aa24792f74e68bd2642b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetectPlayerSO: {fileID: 0}
 --- !u!1 &514098965
 GameObject:
   m_ObjectHideFlags: 0
@@ -3151,7 +3153,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.100545, y: 0.81166, z: -10}
+  m_LocalPosition: {x: -4.094292, y: 0.81166, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3169,28 +3171,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
-  m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_BlendUpdateMethod: 1
-  m_DefaultBlend:
-    m_Style: 1
-    m_Time: 2
-    m_CustomCurve:
+  ShowDebugText: 0
+  ShowCameraFrustum: 1
+  IgnoreTimeScale: 0
+  WorldUpOverride: {fileID: 0}
+  ChannelMask: -1
+  UpdateMethod: 2
+  BlendUpdateMethod: 1
+  LensModeOverride:
+    Enabled: 0
+    DefaultMode: 2
+  DefaultBlend:
+    Style: 1
+    Time: 2
+    CustomCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
-  m_CameraCutEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_CameraActivatedEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  CustomBlends: {fileID: 0}
 --- !u!1 &523980738
 GameObject:
   m_ObjectHideFlags: 0
@@ -3299,6 +3299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee28a6d918085041835d50f01e143cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDamageSender: {fileID: 0}
 --- !u!1 &553001495
 GameObject:
   m_ObjectHideFlags: 0
@@ -4069,9 +4070,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 695090618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30ac20b69f69aa24792f74e68bd2642b, type: 3}
+  m_Script: {fileID: 11500000, guid: dc9568018d44caf49b35a079cb1cb0b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetectPlayerSO: {fileID: 0}
 --- !u!1 &695532213
 GameObject:
   m_ObjectHideFlags: 0
@@ -4327,7 +4329,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ad072358f681d46b2d8e8ce7ac369a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSO: {fileID: 0}
 --- !u!1 &737224335
 GameObject:
   m_ObjectHideFlags: 0
@@ -4372,6 +4373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee28a6d918085041835d50f01e143cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDamageSender: {fileID: 0}
 --- !u!1 &777222843
 GameObject:
   m_ObjectHideFlags: 0
@@ -5139,6 +5141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ac20b69f69aa24792f74e68bd2642b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetectPlayerSO: {fileID: 0}
 --- !u!1 &947912438
 GameObject:
   m_ObjectHideFlags: 0
@@ -10599,6 +10602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ac20b69f69aa24792f74e68bd2642b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetectPlayerSO: {fileID: 0}
 --- !u!1 &1313627219
 GameObject:
   m_ObjectHideFlags: 0
@@ -10890,6 +10894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ac20b69f69aa24792f74e68bd2642b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetectPlayerSO: {fileID: 0}
 --- !u!1 &1380880629
 GameObject:
   m_ObjectHideFlags: 0
@@ -11098,7 +11103,7 @@ Transform:
   m_GameObject: {fileID: 1409649410}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.72, y: 2.35, z: 0}
+  m_LocalPosition: {x: 3.61, y: -2.66, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11382,7 +11387,7 @@ Transform:
   m_GameObject: {fileID: 1431609291}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.31, y: 1.65, z: 0}
+  m_LocalPosition: {x: 1.05, y: -3.24, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11857,6 +11862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee28a6d918085041835d50f01e143cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDamageSender: {fileID: 0}
 --- !u!1 &1560320760
 GameObject:
   m_ObjectHideFlags: 0
@@ -11887,12 +11893,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ExcludedPropertiesInInspector:
-  - m_Script
-  m_LockStageInInspector: 
-  m_StreamingVersion: 20170927
-  m_Priority: 10
-  m_StandbyUpdate: 2
+  Priority:
+    Enabled: 1
+    m_Value: 10
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1701811216}
   m_Lens:
@@ -11902,17 +11909,30 @@ MonoBehaviour:
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
-    LensShift: {x: 0, y: 0}
     GateFit: 2
-    FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
-  m_Transitions:
+    LensShift: {x: 0, y: 0}
+    FocusDistance: 10
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
+  BlendHint: 0
+  m_OnCameraLiveEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ExcludedPropertiesInInspector:
+  - m_Script
+  m_LockStageInInspector: 
+  m_LegacyTransitions:
     m_BlendHint: 0
     m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
         m_Calls: []
-  m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 9548263}
 --- !u!4 &1560320762
 Transform:
@@ -11942,9 +11962,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BoundingShape2D: {fileID: 1992490129}
-  m_Damping: 0.3
-  m_MaxWindowSize: -1
+  BoundingShape2D: {fileID: 1992490129}
+  Damping: 0.3
+  SlowingDistance: 0
+  OversizeWindow:
+    Enabled: 0
+    MaxWindowSize: 0
+    Padding: 0
+  m_LegacyMaxWindowSize: -2
 --- !u!1 &1594939142
 GameObject:
   m_ObjectHideFlags: 0
@@ -15663,6 +15688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee28a6d918085041835d50f01e143cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDamageSender: {fileID: 0}
 --- !u!1 &1916319906
 GameObject:
   m_ObjectHideFlags: 0
@@ -15975,7 +16001,7 @@ Transform:
   m_GameObject: {fileID: 1984070339}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.13, y: -2.89, z: 0}
+  m_LocalPosition: {x: -3.53, y: -2.37, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16033,7 +16059,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.04111419, y: -0.054156125}
+  m_Offset: {x: -0.016142726, y: -0.07256025}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -16043,7 +16069,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.53495944, y: 1.0867666}
+  m_Size: {x: 0.5267798, y: 1.0499583}
   m_EdgeRadius: 0
 --- !u!50 &1984070343
 Rigidbody2D:
