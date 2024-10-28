@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class EnemyDamageReceiver : DamageReceiver
 {
@@ -8,12 +11,31 @@ public class EnemyDamageReceiver : DamageReceiver
 
     private EnemyAnimation enemyAnimation;
 
+    private CharacterMaxHPSO enemyMaxHP;
+
     private void Start()
     {
         enemyController = transform.parent.GetComponent<EnemyController>();
         enemyAnimation = enemyController.EnemyAnimation;
-        MaxHP = enemyController.EnemySO.maxHP;
-        CurrentHP = MaxHP;
+
+        LoadScriptableObject();
+    }
+
+    private void LoadScriptableObject()
+    {
+        Addressables.LoadAssetAsync<CharacterMaxHPSO>(transform.parent.name)
+        .Completed += (handle) =>
+        {
+            if (handle.Status != AsyncOperationStatus.Succeeded)
+            {
+                Debug.LogWarning("Some enemy scriptable object not loaded!");
+                return;
+            }
+
+            enemyMaxHP = handle.Result;
+            MaxHP = enemyMaxHP.maxHP;
+            CurrentHP = MaxHP;
+        };
     }
 
     protected override void HitHandle()

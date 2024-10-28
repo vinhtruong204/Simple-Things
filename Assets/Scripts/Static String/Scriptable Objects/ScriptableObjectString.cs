@@ -3,7 +3,7 @@ public static class ScriptableObjectString
 {
     public static class PlayerSOPath
     {
-        public const string PATH = "Player";
+        public const string MAXHP_PATH = "PlayerMaxHP";
     }
 
     public static class CucumberSOPath

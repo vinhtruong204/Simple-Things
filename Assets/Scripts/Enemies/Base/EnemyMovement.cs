@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
 {
     [Header("Enemy speed")]
     private const float SPEED_NORMAL = 1.5f;
-    private const float SPEED_ACCELERATE = SPEED_NORMAL * 2.5f;
+    private const float SPEED_ACCELERATE = SPEED_NORMAL * 3.0f;
     private float enemySpeed = SPEED_NORMAL;
 
     // Set the enemy speed depends on the current state
@@ -19,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
 
 
     // Prevent player change direction twice and get stuck in the wall
-    protected bool isChangingDirection = false;
+    public bool IsChangingDirection { get; private set; }
 
     // Start is called before the first frame update
     private void Start()
@@ -36,7 +36,7 @@ public class EnemyMovement : MonoBehaviour
 
         SetEnemySpeed();
 
-        // Move enemy horizontal
+        // Move enemy horizontal by set the velocity
         UpdateVelocity();
     }
 
@@ -47,7 +47,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void ResetBoolChangingDirection()
     {
-        isChangingDirection = false;
+        IsChangingDirection = false;
     }
 
     private void UpdateVelocity()
@@ -69,10 +69,10 @@ public class EnemyMovement : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         // If enemy is changing direction 
-        if (isChangingDirection) return;
+        if (IsChangingDirection) return;
 
         // Prevent this method from being called and change direction on the next call
-        isChangingDirection = true;
+        IsChangingDirection = true;
 
         // Flip enemy's sprite horizontal
         enemyAnimation.Flip();

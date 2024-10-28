@@ -2,18 +2,36 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class PlayerDamageReceiver : DamageReceiver
 {
-    [SerializeField] private CharacterSO playerSO;
+    private CharacterMaxHPSO playerMaxHPSO;
     private PlayerAnimation playerAnimation;
 
     private void Start()
     {
-        playerSO = Resources.Load<CharacterSO>(ScriptableObjectString.PlayerSOPath.PATH);
-        MaxHP = playerSO.maxHP;
-        CurrentHP = MaxHP;
+        LoadScriptableObject();
+
         playerAnimation = transform.parent.GetComponentInChildren<PlayerAnimation>();
+    }
+
+    private void LoadScriptableObject()
+    {
+        Addressables.LoadAssetAsync<CharacterMaxHPSO>(ScriptableObjectString.PlayerSOPath.MAXHP_PATH)
+        .Completed += (handle) =>
+        {
+            if (handle.Status != AsyncOperationStatus.Succeeded)
+            {
+                Debug.LogWarning("Player max hp scriptable object couldn't loaded!");
+                return;
+            }
+
+            playerMaxHPSO = handle.Result;
+            MaxHP = playerMaxHPSO.maxHP;
+            CurrentHP = MaxHP;
+        };
     }
 
     protected override void HitHandle()
