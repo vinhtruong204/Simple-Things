@@ -78,6 +78,4 @@ public class EnemyMovement : MonoBehaviour
         enemyAnimation.Flip();
     }
 
-
-
 }

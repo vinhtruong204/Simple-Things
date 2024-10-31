@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcab42c078998f499a4c153a250af91, type: 3}
   m_Name: Cucumber
   m_EditorClassIdentifier: 
-  visionRange: 10
+  visionRange: 7.5
   offsetLeft: {x: -0.5, y: 0, z: 0}
   offsetRight: {x: 0.5, y: 0, z: 0}
