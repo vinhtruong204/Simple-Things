@@ -62,7 +62,7 @@ public class EnemyDetectPlayer : MonoBehaviour
         Vector2 rayOrigin = GetRaycastStartPosition();
 
         // Fire a ray
-        RaycastHit2D raycastHit2D = Physics2D.Raycast(rayOrigin, GetDirection(), visionRange, LayerMask.GetMask("Obstacle", "Player"));
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(rayOrigin, GetDirection(), visionRange, LayerMask.GetMask("Obstacle", "Enemy", "Player"));
 
         // Test ray
         Debug.DrawRay(rayOrigin, GetDirection() * visionRange, Color.white);
