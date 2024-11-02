@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7306479472462135688}
   - component: {fileID: 5477844346451165423}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BigGuyDetectPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 2270341162591820477}
   - component: {fileID: 6617914096230004775}
   - component: {fileID: 4196327706268123736}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: BigGuy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 62865586397921282}
   - component: {fileID: 7923434505756242323}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BigGuyDamageReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 1552303649194948479}
   - component: {fileID: 5390280660878550882}
   - component: {fileID: 9008622103348132738}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BigGuyMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 896
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 7169080430590839382}
   - component: {fileID: 7649627285443607888}
   - component: {fileID: 2014938290182641249}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BigGuyAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 4397492890333809140}
   - component: {fileID: 5087797663011962932}
   - component: {fileID: 3253210523150056773}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: BigGuyParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,7 +561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 478762126837861603}
   - component: {fileID: 8194966105261764882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BigGuyDamageSender
   m_TagString: Untagged
   m_Icon: {fileID: 0}

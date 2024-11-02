@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6591540958955444102}
   - component: {fileID: 6038356272894107979}
   - component: {fileID: 3758864701045886115}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: PlayerAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 6376279455227310221}
   - component: {fileID: 6519758915763681972}
   - component: {fileID: 7190294419505840065}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BombBarAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 984732523931665178}
   - component: {fileID: 3174233016770570645}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: PlayerDamgeReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 4102624900225625715}
   - component: {fileID: 3285576638806330485}
   - component: {fileID: 6192307313794477833}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -548,7 +548,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7247009824530672153}
   - component: {fileID: 6271790307669185415}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: PlayerThrowBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 7241497753220629166}
   - component: {fileID: 5228445897588516435}
   - component: {fileID: 3949434090477290788}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: PlayerMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}

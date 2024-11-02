@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7533574040653188246}
   - component: {fileID: 7603414563768373475}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BaldPirateDetectPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1493318847717504544}
   - component: {fileID: 840104992995665637}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BaldPirateDamageReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 8225131939987325431}
   - component: {fileID: 494651809252787665}
   - component: {fileID: 8984956869319391603}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BaldPirateMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 896
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 8385329656079968230}
   - component: {fileID: 3563091617669180927}
   - component: {fileID: 4390806453065980312}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: BaldPirateParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 1754068066948527705}
   - component: {fileID: 8809881136986773755}
   - component: {fileID: 462846347915285159}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: BaldPirate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 4589536457984197818}
   - component: {fileID: 1042689159330808171}
   - component: {fileID: 3201070504401437194}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BaldPirateAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fc2609a3e1f1de24ab4eab566ff5f708, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -561,7 +561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 153153364528814714}
   - component: {fileID: 2902707974979564121}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BaldPirateDamageSender
   m_TagString: Untagged
   m_Icon: {fileID: 0}

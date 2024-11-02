@@ -18,7 +18,7 @@ public abstract class BaseVolumeSlider : BaseSlider
     private void LoadAudioMixer()
     {
         // Load one audio mixer
-        AsyncOperationHandle<AudioMixer> handle = Addressables.LoadAssetAsync<AudioMixer>("Assets/Audio/AudioMixer/MainMixer.mixer");
+        AsyncOperationHandle<AudioMixer> handle = Addressables.LoadAssetAsync<AudioMixer>("MainMixer");
 
         handle.Completed += Load_Completed;
 
@@ -33,5 +33,8 @@ public abstract class BaseVolumeSlider : BaseSlider
         }
 
         audioMixer = handle.Result;
+        InitialVolume();
     }
+
+    protected abstract void InitialVolume();
 }
