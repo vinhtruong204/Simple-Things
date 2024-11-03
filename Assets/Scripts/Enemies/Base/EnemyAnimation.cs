@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEvent
@@ -77,6 +73,7 @@ public class EnemyAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEven
         enemyDamageReceiver = transform.parent.GetComponentInChildren<EnemyDamageReceiver>();
         enemyMovement = transform.parent.GetComponentInChildren<EnemyMovement>();
         enemyDetectPlayer = transform.parent.GetComponentInChildren<EnemyDetectPlayer>();
+
     }
 
     private void Update()
@@ -173,7 +170,6 @@ public class EnemyAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEven
 
     public void DeadGroundFinished()
     {
-        Debug.Log("Enemy deaded");
         Destroy(transform.parent.gameObject);
     }
 }

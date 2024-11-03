@@ -8,6 +8,8 @@ public class GameObjectManager : MonoBehaviour
 
     public GameObject Player { get; private set; }
 
+    public GameObject Enemies { get; private set; }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -17,6 +19,7 @@ public class GameObjectManager : MonoBehaviour
 
         Instance = this;
         Player = GameObject.Find("Player");
+        Enemies = GameObject.Find("Enemies");
         //DontDestroyOnLoad(gameObject);
     }
 

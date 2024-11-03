@@ -11,8 +11,8 @@ public abstract class BaseVolumeSlider : BaseSlider
 
     protected new void Awake()
     {
-        base.Awake();
         LoadAudioMixer();
+        base.Awake();
     }
 
     private void LoadAudioMixer()

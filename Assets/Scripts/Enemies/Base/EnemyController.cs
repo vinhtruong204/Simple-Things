@@ -12,12 +12,15 @@ public class EnemyController : MonoBehaviour
     public EnemyDamageSender EnemyDamageSender { get; private set; }
     public EnemyDetectPlayer EnemyDetectPlayer { get; private set; }
 
+    public ManageEnemyNumbers ManageEnemyNumbers { get; private set; }
+
     private void Awake()
     {
         EnemyAnimation = GetComponentInChildren<EnemyAnimation>();
         EnemyMovement = GetComponentInChildren<EnemyMovement>();
         EnemyDamageSender = GetComponentInChildren<EnemyDamageSender>();
         EnemyDetectPlayer = GetComponentInChildren<EnemyDetectPlayer>();
+        ManageEnemyNumbers = GetComponentInParent<ManageEnemyNumbers>();
     }
 
     private void OnCollisionStay2D(Collision2D other)

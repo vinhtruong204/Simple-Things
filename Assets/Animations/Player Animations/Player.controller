@@ -384,7 +384,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: DoorIn
+  - m_Name: Door In
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -597,7 +597,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: DoorIn
+    m_ConditionEvent: Door In
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8549640578426902055}

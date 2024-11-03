@@ -8,6 +8,8 @@ public static class PlayerString
         public const string MOVE_Y = "MoveY";
         public const string IS_BEING_HIT = "IsBeingHit";
         public const string DEAD_HIT = "DeadHit";
+
+        public const string DOOR_IN = "Door In";
     }
 
     public static class PlayerParticleTrigger

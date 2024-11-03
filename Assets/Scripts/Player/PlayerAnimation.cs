@@ -50,6 +50,9 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
                 case "Dead Ground":
                     aniEvent.functionName = nameof(DeadGroundFinished);
                     break;
+                case "Door In":
+                    aniEvent.functionName = nameof(DoorInFinished);
+                    break;
                 default:
                     continue;
             }
@@ -137,6 +140,17 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
     public void DeadGroundFinished()
     {
         GameStatesManager.Instance.HandleGameOver();
+    }
+
+    public void PlayDoorInAnimation()
+    {
+        animator.SetTrigger(PlayerString.PlayerAnimationParameters.DOOR_IN);
+    }
+
+    public void DoorInFinished()
+    {
+        // Debug.Log("Hey Door in!");
+        // For save health to scriptable object
     }
 
 }

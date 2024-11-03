@@ -18,7 +18,12 @@ public class PlayButton : BaseButton
     }
     protected override void OnClick()
     {
+        // Enable loading panel and reset time scale to 1f
         loadingPanel.SetActive(true);
+        LoadScene.Instance.LoadNextLevel();
+        Time.timeScale = 1.0f;
+
+        // Disable main menu buttons
         transform.parent.gameObject.SetActive(false);
     }
 
