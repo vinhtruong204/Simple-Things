@@ -30,7 +30,7 @@ public class GameStatesManager : MonoBehaviour
     public void HandleGameWin()
     {
         gameWinPanel.SetActive(true);
-        LoadScene.Instance.LoadNextLevel();
+        LoadLevel.Instance.LoadNextLevel();
         Time.timeScale = 0.0f;
     }
 }

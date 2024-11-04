@@ -20,7 +20,7 @@ public class PlayButton : BaseButton
     {
         // Enable loading panel and reset time scale to 1f
         loadingPanel.SetActive(true);
-        LoadScene.Instance.LoadNextLevel();
+        LoadLevel.Instance.LoadNextLevel();
         Time.timeScale = 1.0f;
 
         // Disable main menu buttons

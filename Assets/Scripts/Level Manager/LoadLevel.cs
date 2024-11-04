@@ -5,10 +5,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadScene : MonoBehaviour
+public class LoadLevel : MonoBehaviour
 {
+    public static LoadLevel Instance { get; private set; }
     private const int TOTAL_LEVEL = 1;
-    public static LoadScene Instance { get; private set; }
     public Slider slider;
     public TMP_Text percentText;
 
@@ -26,13 +26,17 @@ public class LoadScene : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        // Calculate next level
         int nextLevelBuildIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
+        // If next level exceeds max level
         if (nextLevelBuildIndex > TOTAL_LEVEL)
         {
+            // Load menu scene
             nextLevelBuildIndex = 0;
         }
 
+        // Start load scene asynchronously
         StartCoroutine(LoadSceneAsynchronously(nextLevelBuildIndex));
     }
 
