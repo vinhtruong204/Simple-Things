@@ -150,7 +150,7 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
     public void DoorInFinished()
     {
         // Debug.Log("Hey Door in!");
-        // For save health to scriptable object
+        // Save heath by PlayerPrefs
     }
 
 }

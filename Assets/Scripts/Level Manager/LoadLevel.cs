@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class LoadLevel : MonoBehaviour
 {
     public static LoadLevel Instance { get; private set; }
-    private const int TOTAL_LEVEL = 1;
+    private const int TOTAL_LEVEL = 2;
     public Slider slider;
     public TMP_Text percentText;
 

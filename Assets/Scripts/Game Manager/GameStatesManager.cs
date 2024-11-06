@@ -31,6 +31,6 @@ public class GameStatesManager : MonoBehaviour
     {
         gameWinPanel.SetActive(true);
         LoadLevel.Instance.LoadNextLevel();
-        Time.timeScale = 0.0f;
+        //
     }
 }

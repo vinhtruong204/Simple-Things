@@ -12,8 +12,8 @@ public class PlayButton : BaseButton
     
     private new void Awake()
     {
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = 60;
+        // QualitySettings.vSyncCount = 0;
+        // Application.targetFrameRate = 60;
         base.Awake();
     }
     protected override void OnClick()

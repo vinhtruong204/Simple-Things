@@ -5,8 +5,8 @@ public class BombSendDamage : DamageSender
 {
     private BombAnimation bombAnimation;
     private CircleCollider2D circleCollider2D;
-    private Vector2 rightForce = new(6.0f, 6.0f);
-    private Vector2 leftForce = new(-6.0f, 6.0f);
+    private Vector2 rightForce = new(4.0f, 4.0f);
+    private Vector2 leftForce = new(-4.0f, 4.0f);
 
     private void Awake()
     {

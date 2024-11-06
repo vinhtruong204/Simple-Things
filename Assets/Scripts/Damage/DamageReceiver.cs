@@ -23,7 +23,6 @@ public abstract class DamageReceiver : MonoBehaviour
             CurrentHP = MaxHP;
             return false;
         }
-
         return true;
     }
 

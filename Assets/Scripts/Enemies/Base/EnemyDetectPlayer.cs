@@ -65,7 +65,7 @@ public class EnemyDetectPlayer : MonoBehaviour
         RaycastHit2D raycastHit2D = Physics2D.Raycast(rayOrigin, GetDirection(), visionRange, LayerMask.GetMask("Obstacle", "Enemy", "Player"));
 
         // Test ray
-        Debug.DrawRay(rayOrigin, GetDirection() * visionRange, Color.white);
+        // Debug.DrawRay(rayOrigin, GetDirection() * visionRange, Color.white);
 
         // If raycast don't hit a collider or collider is not from player
         if (raycastHit2D.collider == null || raycastHit2D.transform.gameObject.name != GameObjectString.GameObjectName.PLAYER_NAME)
@@ -96,7 +96,7 @@ public class EnemyDetectPlayer : MonoBehaviour
     private bool PlayerInHorizontalSight()
     {
         float angle = Vector2.Angle(Vector2.right, GetDirection());
-        return (0.0f <= angle && angle <= 10.0f) || (170.0f <= angle && angle <= 180.0f);
+        return (0.0f <= angle && angle <= 5.0f) || (175.0f <= angle && angle <= 180.0f);
     }
 
     private Vector2 GetDirection()
