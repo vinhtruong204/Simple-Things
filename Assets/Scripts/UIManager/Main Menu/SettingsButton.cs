@@ -9,7 +9,7 @@ public class SettingsButton : BaseButton
     private void Start()
     {
         // Get game object by index because can't find inactive game object by tag or name
-        settingsPanel = transform.parent.parent.GetChild(1).gameObject;
+        // settingsPanel = transform.parent.parent.GetChild(1).gameObject;
 
         // parent: Main menu -> parent: Canvas -> GetChild(1): Settings Panel
     }

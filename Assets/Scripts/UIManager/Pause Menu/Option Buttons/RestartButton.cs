@@ -7,7 +7,13 @@ public class RestartButton : BaseButton
 {
     protected override void OnClick()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // Delete current health point when play again
+        PlayerPrefs.DeleteKey("CurrentHP");
+
+        // Load level 1
+        SceneManager.LoadScene(1);
+
+        // Update time scale
         Time.timeScale = 1.0f;
     }
 }

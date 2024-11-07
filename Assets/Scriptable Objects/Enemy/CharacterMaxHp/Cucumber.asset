@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Cucumber
   m_EditorClassIdentifier: 
   characterName: Cucumber
-  maxHP: 3
-  amountDamage: 1
+  maxHP: 1

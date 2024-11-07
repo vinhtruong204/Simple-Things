@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: BaldPirate
   m_EditorClassIdentifier: 
   characterName: BaldPirate
-  maxHP: 5
-  amountDamage: 1
+  maxHP: 2

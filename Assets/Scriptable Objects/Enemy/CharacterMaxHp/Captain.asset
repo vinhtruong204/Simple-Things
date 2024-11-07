@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Captain
   m_EditorClassIdentifier: 
   characterName: Captain
-  maxHP: 5
-  amountDamage: 1
+  maxHP: 3
