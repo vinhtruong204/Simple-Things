@@ -18,9 +18,14 @@ public class PlayButton : BaseButton
     }
     protected override void OnClick()
     {
+        // Delete current health point when play again
+        PlayerPrefs.DeleteKey("CurrentHP");
+
         // Enable loading panel and reset time scale to 1f
         loadingPanel.SetActive(true);
         LoadLevel.Instance.LoadNextLevel();
+        
+        // Update time scale
         Time.timeScale = 1.0f;
 
         // Disable main menu buttons

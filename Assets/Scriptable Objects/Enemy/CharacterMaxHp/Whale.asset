@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Whale
   m_EditorClassIdentifier: 
   characterName: Whale
-  maxHP: 5
-  amountDamage: 1
+  maxHP: 4

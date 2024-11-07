@@ -1463,7 +1463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 0}
-  mainMenu: {fileID: 0}
+  mainMenu: {fileID: 1792632822}
 --- !u!114 &719129597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1786,7 +1786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 0}
-  mainMenu: {fileID: 0}
+  mainMenu: {fileID: 1792632822}
 --- !u!1 &791496503
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,6 +2296,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &932025113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 932025115}
+  - component: {fileID: 932025114}
+  m_Layer: 0
+  m_Name: Frame Rate Cap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &932025114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932025113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a28361ee6c02d444b2f5950cd4eb2dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &932025115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932025113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &988460632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3408,7 +3452,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1728510536}
   percentText: {fileID: 280641838}
-  loadingPanel: {fileID: 914315072}
 --- !u!4 &1650923967
 Transform:
   m_ObjectHideFlags: 0
@@ -4764,3 +4807,4 @@ SceneRoots:
   - {fileID: 1441896327}
   - {fileID: 1695759613}
   - {fileID: 1650923967}
+  - {fileID: 932025115}

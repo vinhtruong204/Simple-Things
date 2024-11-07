@@ -1,37 +1,25 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
-
 public class PlayerDamageReceiver : DamageReceiver
 {
-    private CharacterMaxHPSO playerMaxHPSO;
     private PlayerAnimation playerAnimation;
+
+    private PlayerHealthManager playerHealthManager;
 
     private void Start()
     {
-        LoadScriptableObject();
-
         playerAnimation = transform.parent.GetComponentInChildren<PlayerAnimation>();
+        playerHealthManager = transform.parent.GetComponentInChildren<PlayerHealthManager>();
+
+        InitializeHealthPoint();
     }
 
-    private void LoadScriptableObject()
+    private async void InitializeHealthPoint()
     {
-        Addressables.LoadAssetAsync<CharacterMaxHPSO>(ScriptableObjectString.PlayerSOPath.MAXHP_PATH)
-        .Completed += (handle) =>
-        {
-            if (handle.Status != AsyncOperationStatus.Succeeded)
-            {
-                Debug.LogWarning("Player max hp scriptable object couldn't loaded!");
-                return;
-            }
+        // Get result from load health point method
+        (int CurrentHP, int MaxHP) result = await playerHealthManager.LoadHPAsync();
 
-            playerMaxHPSO = handle.Result;
-            MaxHP = playerMaxHPSO.maxHP;
-            CurrentHP = MaxHP;
-        };
+        // Initial current and max HP
+        CurrentHP = result.CurrentHP;
+        MaxHP = result.MaxHP;
     }
 
     protected override void HitHandle()

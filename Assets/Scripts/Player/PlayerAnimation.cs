@@ -15,6 +15,9 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
     // Hit handle
     private PlayerDamageReceiver playerDamageReceiver;
 
+    // Handle save and load HP when game win or game over
+    private PlayerHealthManager playerHealthManager;
+
     // Jumping
     public bool IsJumping { get; private set; }
     private void Start()
@@ -31,6 +34,9 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
         playerDamageReceiver = transform.parent.GetComponentInChildren<PlayerDamageReceiver>();
         playerRb2D = GetComponentInParent<Rigidbody2D>();
         scale = transform.parent.localScale;
+
+        // Handle load player health point components
+        playerHealthManager = transform.parent.GetComponentInChildren<PlayerHealthManager>();
     }
 
     public void AddAnimationEvent()
@@ -139,6 +145,7 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
 
     public void DeadGroundFinished()
     {
+        playerHealthManager.ClearHP();
         GameStatesManager.Instance.HandleGameOver();
     }
 
@@ -151,6 +158,7 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
     {
         // Debug.Log("Hey Door in!");
         // Save heath by PlayerPrefs
+        playerHealthManager.SaveHP();
     }
 
 }

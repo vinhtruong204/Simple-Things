@@ -9,7 +9,7 @@ public class PauseButton : BaseButton
 
     private void Start()
     {
-        pauseMenu = transform.parent.GetChild(3).gameObject;
+        // pauseMenu = transform.parent.GetChild(3).gameObject;
         // pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
     }
 

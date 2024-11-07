@@ -6,7 +6,7 @@ public class BackButton : BaseButton
 
     private void Start()
     {
-        mainMenu = transform.parent.parent.GetChild(0).gameObject;
+        // mainMenu = transform.parent.parent.GetChild(0).gameObject;
 
         // parent: Settings Panel -> parent: Canvas -> GetChild(0): Main Menu
     }

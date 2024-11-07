@@ -8,7 +8,7 @@ public class HelpButton : BaseButton
 
     private void Start()
     {
-        helpPanel = transform.parent.parent.GetChild(2).gameObject;
+        // helpPanel = transform.parent.parent.GetChild(2).gameObject;
 
         // parent: Main Menu -> parent: Canvas -> GetChild(2): Help panel
     }
