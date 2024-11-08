@@ -11285,6 +11285,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8058658563697518725, guid: ac09e2ab530292d43a16e57442ed08df, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058658563697518725, guid: ac09e2ab530292d43a16e57442ed08df, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.23
       objectReference: {fileID: 0}
@@ -11603,6 +11607,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6077922766573074869, guid: 7af7b33a65a2f7541b18bd3219e0c685, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 809558590675688374}
     - target: {fileID: 7511707901040296508, guid: 7af7b33a65a2f7541b18bd3219e0c685, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -11656,6 +11664,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7af7b33a65a2f7541b18bd3219e0c685, type: 3}
+--- !u!1 &809558590675688374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3856476465698860844, guid: 7af7b33a65a2f7541b18bd3219e0c685, type: 3}
+  m_PrefabInstance: {fileID: 809558590675688373}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2545822684543035994
 PrefabInstance:
   m_ObjectHideFlags: 0
