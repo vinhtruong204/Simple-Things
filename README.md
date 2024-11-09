@@ -4,11 +4,9 @@
 This is a video game designed in the platformer genre. You will play as a bomber, throwing bombs to destroy enemies on the way. After eliminate all enemies, you can go to the next level by going to the door at the end of the map.\
 **Some images of the game:**
 
-|--------------------|--------------------|
-|![Screenshot 2024-11-09 135245](https://github.com/user-attachments/assets/6913afee-01be-4ba0-9b5a-77e6f6cdce26) | ![Screenshot 2024-11-09 135314](https://github.com/user-attachments/assets/f27d88db-19c5-4e9f-b432-63e31c7abbec) |
-
-|![Screenshot 2024-11-09 135342](https://github.com/user-attachments/assets/9e6c9073-bf9b-4962-a39c-2ef67d2dca85) | ![Screenshot 2024-11-09 135356](https://github.com/user-attachments/assets/f3a1b598-5cf6-4e43-b48a-77a79c7e38c4) |
-
+| ![Level 1 in game](https://github.com/user-attachments/assets/6913afee-01be-4ba0-9b5a-77e6f6cdce26) | ![The enemy is being hit by a bomb](https://github.com/user-attachments/assets/f27d88db-19c5-4e9f-b432-63e31c7abbec) |
+|-|-|
+| ![Level 2 in game](https://github.com/user-attachments/assets/9e6c9073-bf9b-4962-a39c-2ef67d2dca85) | ![Game Over](https://github.com/user-attachments/assets/f3a1b598-5cf6-4e43-b48a-77a79c7e38c4) |
 
 
 [**Video demo**](https://youtu.be/OUgTVnj7H0s?si=Mzes6MMkbWKuIDYe)
