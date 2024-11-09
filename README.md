@@ -9,7 +9,8 @@ This is a video game designed in the platformer genre. You will play as a bomber
 | ![Level 2 in game](https://github.com/user-attachments/assets/9e6c9073-bf9b-4962-a39c-2ef67d2dca85) | ![Game Over](https://github.com/user-attachments/assets/f3a1b598-5cf6-4e43-b48a-77a79c7e38c4) |
 
 
-[**Video demo**](https://youtu.be/OUgTVnj7H0s?si=Mzes6MMkbWKuIDYe)
+[**Video demo**](https://youtu.be/OUgTVnj7H0s?si=Mzes6MMkbWKuIDYe)\
+[**Link download apk file**](https://drive.google.com/file/d/16fTyQGGjjnHXshXXuKdIqSyfh-b5xBtT/view?usp=sharing)
 
 ## Player Control
 - On mobile: Use joystick to move, jump button to jump and bomb button to throw bombs.
