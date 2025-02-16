@@ -24,7 +24,7 @@ public class ExitDoorHandleGameWin : MonoBehaviour
         if (manageEnemyNumbers.TotalEnemyCount > 0) return;
 
         // If the player collides with the door
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.name.Contains(GameObjectString.GameObjectName.PLAYER_NAME))
         {
             playerAnimation.PlayDoorInAnimation();
             exitDoorAnimation.OpenExitDoor();
