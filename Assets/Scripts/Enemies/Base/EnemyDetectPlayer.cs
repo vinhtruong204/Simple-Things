@@ -52,6 +52,8 @@ public class EnemyDetectPlayer : MonoBehaviour
 
     private void UpdatePlayerDetected()
     {
+        if(player == null) return;
+        
         if (!PlayerInRange() || !PlayerInHorizontalSight())
         {
             PlayerDetected = false;
@@ -68,7 +70,7 @@ public class EnemyDetectPlayer : MonoBehaviour
         // Debug.DrawRay(rayOrigin, GetDirection() * visionRange, Color.white);
 
         // If raycast don't hit a collider or collider is not from player
-        if (raycastHit2D.collider == null || raycastHit2D.transform.gameObject.name != GameObjectString.GameObjectName.PLAYER_NAME)
+        if (raycastHit2D.collider == null || !raycastHit2D.transform.gameObject.name.Contains(GameObjectString.GameObjectName.PLAYER_NAME))
         {
             PlayerDetected = false;
             return;

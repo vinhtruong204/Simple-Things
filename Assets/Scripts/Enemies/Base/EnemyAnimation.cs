@@ -138,7 +138,7 @@ public class EnemyAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEven
 
     public void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.name != GameObjectString.GameObjectName.PLAYER_NAME) return;
+        if (!other.gameObject.name.Contains(GameObjectString.GameObjectName.PLAYER_NAME)) return;
 
         isAttacking = true;
 
