@@ -1,8 +1,6 @@
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using System;
 using System.Collections.Generic;
 
 public class MusicBackgroundManager : SoundManager
@@ -50,6 +48,7 @@ public class MusicBackgroundManager : SoundManager
         }
 
         PlaySound(AudioString.MusicString.NAME_MUSIC_BACKGROUND);
+        Addressables.Release(handle);
     }
 
     protected override void InitialVolume()

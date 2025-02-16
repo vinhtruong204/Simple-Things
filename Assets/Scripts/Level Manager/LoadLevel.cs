@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,7 +22,13 @@ public class LoadLevel : MonoBehaviour
         }
 
         Instance = this;
+        SceneManager.sceneLoaded += OnSceneLoaded;
         // DontDestroyOnLoad(gameObject);
+    }
+
+    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        NetworkManager.Singleton.StartHost();
     }
 
     public void LoadNextLevel()
@@ -55,5 +62,10 @@ public class LoadLevel : MonoBehaviour
             percentText.text = Math.Round(progress * 100.0f, 2) + " %";
             yield return null;
         }
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

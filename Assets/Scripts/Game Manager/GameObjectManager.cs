@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,16 @@ public class GameObjectManager : MonoBehaviour
 
     public GameObject Enemies { get; private set; }
 
+    private void OnEnable()
+    {
+        PlayerController.OnPlayerSpawned += LoadPlayer;
+    }
+
+    private void LoadPlayer(GameObject playerObj)
+    {
+        Player = playerObj;
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -18,9 +29,13 @@ public class GameObjectManager : MonoBehaviour
         }
 
         Instance = this;
-        Player = GameObject.Find("Player");
+        // Player = GameObject.Find("Player");
         Enemies = GameObject.Find("Enemies");
         //DontDestroyOnLoad(gameObject);
     }
 
+    private void OnDisable()
+    {
+        PlayerController.OnPlayerSpawned -= LoadPlayer;
+    }
 }

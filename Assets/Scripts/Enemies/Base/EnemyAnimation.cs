@@ -23,11 +23,11 @@ public class EnemyAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEven
     // Start is called before the first frame update
     private void Start()
     {
-        LoadPlayerComponents();
-
         LoadAllComponents();
 
         AddAnimationEvent();
+
+        LoadPlayerComponents();
     }
 
     public void AddAnimationEvent()

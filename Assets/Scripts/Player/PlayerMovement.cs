@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         PlayerRb2D = transform.parent.GetComponent<Rigidbody2D>();
+        joystick = GameObject.FindGameObjectWithTag("JoyStick").GetComponent<Joystick>();
     }
 
     private void Update()
