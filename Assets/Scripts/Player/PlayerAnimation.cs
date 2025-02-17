@@ -1,6 +1,7 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEvent
+public class PlayerAnimation : NetworkBehaviour, IDamageAnimation, IAddAnimationEvent
 {
     // Animation control
     private Animator animator;
@@ -22,6 +23,7 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
     public bool IsJumping { get; private set; }
     private void Start()
     {
+        if (!IsOwner) return;
         GetAllComponents();
 
         AddAnimationEvent();
@@ -70,6 +72,7 @@ public class PlayerAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEve
 
     private void Update()
     {
+        if (!IsOwner) return;
         ChangeDirection();
 
         SetAnimationParameters();

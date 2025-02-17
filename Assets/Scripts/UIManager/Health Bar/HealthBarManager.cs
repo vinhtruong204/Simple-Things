@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class HealthBarManager : MonoBehaviour
+public class HealthBarManager : MonoBehaviour, IHandleLoadedPlayer
 {
     [SerializeField] private GameObject[] hearts;
 
@@ -14,12 +14,18 @@ public class HealthBarManager : MonoBehaviour
     {
         hearts = GameObject.FindGameObjectsWithTag(GameObjectString.GameObjectTag.HEART_TAG);
 
+        Invoke(nameof(HandleLoadedPlayer), 1f);
+    }
+
+    public void HandleLoadedPlayer()
+    {
         playerDamageReceiver = GameObjectManager.Instance.Player.GetComponentInChildren<PlayerDamageReceiver>();
     }
 
     // Update UI after add heart. Prevent out of index in array hearts
     private void LateUpdate()
     {
+        if (playerDamageReceiver == null) return;
         SetActiveHearts();
 
         SetInActiveHearts();

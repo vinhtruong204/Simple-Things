@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ExitDoorHandleGameWin : MonoBehaviour
+public class ExitDoorHandleGameWin : MonoBehaviour, IHandleLoadedPlayer
 {
     private ManageEnemyNumbers manageEnemyNumbers;
     private ExitDoorAnimation exitDoorAnimation;
@@ -15,6 +15,12 @@ public class ExitDoorHandleGameWin : MonoBehaviour
     {
         // Get component contain enemy numbers when start game
         manageEnemyNumbers = GameObjectManager.Instance.Enemies.GetComponent<ManageEnemyNumbers>();
+
+        Invoke(nameof(HandleLoadedPlayer), 1f);
+    }
+
+    public void HandleLoadedPlayer()
+    {
         playerAnimation = GameObjectManager.Instance.Player.GetComponentInChildren<PlayerAnimation>();
     }
 

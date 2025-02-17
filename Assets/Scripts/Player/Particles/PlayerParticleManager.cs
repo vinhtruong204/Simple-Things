@@ -1,6 +1,7 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerParticleManager : MonoBehaviour
+public class PlayerParticleManager : NetworkBehaviour
 {
     private Animator animator;
 
@@ -19,6 +20,7 @@ public class PlayerParticleManager : MonoBehaviour
 
     private void Update()
     {
+        if (!IsOwner) return;
         PlayJumpAndFallParticle();
 
         PlayMoveParticle();

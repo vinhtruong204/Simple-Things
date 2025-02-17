@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BombForce : MonoBehaviour
+public class BombForce : MonoBehaviour, IHandleLoadedPlayer
 {
     private Rigidbody2D bombRb;
 
@@ -12,10 +12,23 @@ public class BombForce : MonoBehaviour
     {
         bombRb = GetComponentInParent<Rigidbody2D>();
         player = GameObjectManager.Instance.Player;
+        if (player == null)
+        {
+            Invoke(nameof(HandleLoadedPlayer), 1f);
+        }
+    }
+
+    public void HandleLoadedPlayer()
+    {
+        player = GameObjectManager.Instance.Player;
+        SetPosition();
+
+        AddForceToBomb();
     }
 
     private void OnEnable()
     {
+        if (player == null) return;
         SetPosition();
 
         AddForceToBomb();

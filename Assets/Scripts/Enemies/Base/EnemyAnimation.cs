@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class EnemyAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEvent
+public class EnemyAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEvent, IHandleLoadedPlayer
 {
     private bool isAttacking;
     private BoxCollider2D enemyAttackBox;
@@ -27,7 +28,13 @@ public class EnemyAnimation : MonoBehaviour, IDamageAnimation, IAddAnimationEven
 
         AddAnimationEvent();
 
-        LoadPlayerComponents();
+        Invoke(nameof(HandleLoadedPlayer), 1f);
+       
+    }
+
+    public void HandleLoadedPlayer()
+    {
+         LoadPlayerComponents();
     }
 
     public void AddAnimationEvent()

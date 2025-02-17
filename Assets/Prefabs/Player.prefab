@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6591540958955444102}
   - component: {fileID: 6038356272894107979}
   - component: {fileID: 3758864701045886115}
+  - component: {fileID: 4108046063915553888}
   m_Layer: 8
   m_Name: PlayerAnimation
   m_TagString: Untagged
@@ -123,6 +124,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b7b478cfff7d140b98837ba074a7d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4108046063915553888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657398743804545862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  TransitionStateInfoList: []
+  m_Animator: {fileID: 6038356272894107979}
 --- !u!1 &4058066701662208617
 GameObject:
   m_ObjectHideFlags: 0

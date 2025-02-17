@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerThrowBomb : MonoBehaviour
+public class PlayerThrowBomb : NetworkBehaviour
 {
     // Check player deaded
     private PlayerDamageReceiver playerDamageReceiver;
@@ -20,6 +21,7 @@ public class PlayerThrowBomb : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (!IsOwner) return;
         // User request throw a bomb
         if (Input.GetKeyDown(KeyCode.E))
         {
