@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameObjectManager : MonoBehaviour
@@ -10,11 +7,6 @@ public class GameObjectManager : MonoBehaviour
     public GameObject Player { get; private set; }
 
     public GameObject Enemies { get; private set; }
-
-    private void OnEnable()
-    {
-        PlayerController.OnPlayerSpawned += LoadPlayer;
-    }
 
     private void LoadPlayer(GameObject playerObj)
     {
@@ -30,6 +22,8 @@ public class GameObjectManager : MonoBehaviour
 
         Instance = this;
         // Player = GameObject.Find("Player");
+
+        PlayerController.OnPlayerSpawned += LoadPlayer;
         Enemies = GameObject.Find("Enemies");
         //DontDestroyOnLoad(gameObject);
     }

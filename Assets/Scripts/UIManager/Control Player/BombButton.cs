@@ -13,6 +13,6 @@ public class BombButton : BaseButton
 
     protected override void OnClick()
     {
-        playerThrowBomb.ThrowBomb();
+        playerThrowBomb?.ThrowBomb();
     }
 }

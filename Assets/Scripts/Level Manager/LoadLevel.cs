@@ -28,7 +28,17 @@ public class LoadLevel : MonoBehaviour
 
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        NetworkManager.Singleton.StartHost();
+        if (arg0.buildIndex == 0) return;
+
+        if (ManageUser.Instance.StartMode.Contains("Host"))
+        {
+            NetworkManager.Singleton.StartHost();
+        }
+        else
+        {
+            NetworkManager.Singleton.StartClient();
+        }
+
     }
 
     public void LoadNextLevel()
@@ -42,6 +52,9 @@ public class LoadLevel : MonoBehaviour
             // Load menu scene
             nextLevelBuildIndex = 0;
         }
+
+        // Shutdown network manager
+        NetworkManager.Singleton.Shutdown();
 
         // Start load scene asynchronously
         StartCoroutine(LoadSceneAsynchronously(nextLevelBuildIndex));
@@ -64,7 +77,7 @@ public class LoadLevel : MonoBehaviour
         }
     }
 
-    void OnDestroy()
+    void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
